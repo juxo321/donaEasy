@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DonaEasy</string>
+    <string name="nombre_o_apodo">nombre o apodo</string>
 </resources>
