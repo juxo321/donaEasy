@@ -11,7 +11,7 @@
         android:layout_width="201dp"
         android:layout_height="192dp"
         android:layout_marginTop="104dp"
-        android:src=""
+        android:src="@"
         app:layout_constraintBottom_toTopOf="@+id/"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
