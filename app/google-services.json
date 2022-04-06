@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "207833360724",
+    "project_id": "donaeasy-cadba",
+    "storage_bucket": "donaeasy-cadba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207833360724:android:acfc64680eff53c88b40c1",
+        "android_client_info": {
+          "package_name": "com.example.donaeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207833360724-m8vaeuscj1anqlgkf578o9cr82m4r839.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb8OjRypccOYskBvE2g4P5V0ldy-8A9BQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207833360724-m8vaeuscj1anqlgkf578o9cr82m4r839.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

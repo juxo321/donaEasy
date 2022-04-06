@@ -18,29 +18,7 @@
         app:layout_constraintVertical_bias="0.155"
         app:srcCompat="@drawable/donaeasylogo" />
 
-    <RadioButton
-        android:id="@+id/RadioDonador"
-        android:layout_width="112dp"
-        android:layout_height="55dp"
-        android:text="Donador"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.257"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807" />
 
-    <RadioButton
-        android:id="@+id/RadioPaciente"
-        android:layout_width="126dp"
-        android:layout_height="49dp"
-        android:text="@string/paciente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
 
     <TextView
         android:id="@+id/etiquetaIndicacion"
@@ -58,7 +36,7 @@
         app:layout_constraintVertical_bias="0.437" />
 
     <EditText
-        android:id="@+id/txtApodo"
+        android:id="@+id/txtUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -92,13 +70,15 @@
         android:layout_width="168dp"
         android:layout_height="55dp"
         android:backgroundTint="#C1292E"
+        android:onClick="Registrarse"
         android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintVertical_bias="0.92"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/textView"
@@ -122,5 +102,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.637" />
+
+    <RadioGroup
+        android:id="@+id/radioGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/RadioDonador"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823">
+
+        <RadioButton
+            android:id="@+id/RadioDonador"
+            android:layout_width="112dp"
+            android:layout_height="55dp"
+            android:checked="false"
+            android:text="Donador"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.257"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.807" />
+
+        <RadioButton
+            android:id="@+id/RadioPaciente"
+            android:layout_width="126dp"
+            android:layout_height="49dp"
+            android:checked="false"
+            android:text="@string/paciente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.817"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
