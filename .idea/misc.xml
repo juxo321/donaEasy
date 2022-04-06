@@ -3,14 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_detalles_campania.xml" value="0.18425925925925926" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_generar_campania.xml" value="0.18425925925925926" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarSesion.xml" value="0.536" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarsesion.xml" value="0.1" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_campanias_disponibles.xml" value="0.25" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_detalles_campania.xml" value="0.25" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_generar_campania.xml" value="0.2" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_iniciarSesion.xml" value="0.25" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_main_campania.xml" value="0.25" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_principal_generar_campania.xml" value="0.25" />
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_registro.xml" value="0.264" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_main_campania.xml" value="0.18425925925925926" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_registrarse.xml" value="0.34933333333333333" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_registro.xml" value="0.1" />
       </map>
     </option>
   </component>
