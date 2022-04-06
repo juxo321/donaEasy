@@ -3,13 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_iniciarSesion.xml" value="0.25" />
-        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_registro.xml" value="0.2" />
-=======
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarSesion.xml" value="0.536" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarsesion.xml" value="0.536" />
->>>>>>> dece356c9f9a159a0597c8c7e1f9d13038084fbe
+        <entry key="..\:/Users/AN515-54/AndroidStudioProjects/donaEasy/app/src/main/res/layout/activity_registro.xml" value="0.4" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
       </map>
     </option>
