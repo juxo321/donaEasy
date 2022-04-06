@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="nombre_o_apodo">nombre o apodo</string>
+    <string name="todo">TODO</string>
+    <string name="donador">donador</string>
+    <string name="registrate_para_comenzar">Registrate para comenzar</string>
+    <string name="registarte_para_comenzar">registarte para comenzar</string>
+    <string name="regisrate_para_comenzar">Regisrate para comenzar</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="ingresa_uns_contrase_a">Ingresa uns contraseña</string>
+    <string name="aceptar">Aceptar</string>
 </resources>
