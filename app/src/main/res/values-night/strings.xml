@@ -9,4 +9,6 @@
     <string name="registrarme">Registrarme</string>
     <string name="ingresa_uns_contrase_a">Ingresa uns contraseña</string>
     <string name="aceptar">Aceptar</string>
+    <string name="crear_campa_a">Crear campaña</string>
+    <string name="mi_campa_a">Mi campaña:</string>
 </resources>

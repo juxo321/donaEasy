@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
+            android:name=".DetallesCampania"
+            android:exported="false" />
+        <activity
+            android:name=".GenerarCampania"
+            android:exported="false" />
+        <activity
+            android:name=".MainCampania"
+            android:exported="false" />
+        <activity
             android:name=".Registro"
             android:exported="false" />
         <activity
