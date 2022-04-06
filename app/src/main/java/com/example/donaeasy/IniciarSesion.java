@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation;
 import android.view.View;
 
 public class IniciarSesion extends AppCompatActivity {
@@ -17,7 +16,7 @@ public class IniciarSesion extends AppCompatActivity {
     }
 
     public void acitivityRegistrarse(View view){
-        Intent intentRegistrarse =new Intent(IniciarSesion.this, Registro.class);
+        Intent intentRegistrarse =new Intent(IniciarSesion.this, Registrarse.class);
         startActivity(intentRegistrarse);
     }
 }

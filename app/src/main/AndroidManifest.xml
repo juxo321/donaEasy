@@ -19,7 +19,7 @@
             android:name=".MainCampania"
             android:exported="false" />
         <activity
-            android:name=".Registro"
+            android:name=".Registrarse"
             android:exported="false" />
         <activity
             android:name=".IniciarSesion"
