@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "207833360724",
-    "project_id": "donaeasy-cadba",
-    "storage_bucket": "donaeasy-cadba.appspot.com"
+    "project_number": "574223759216",
+    "firebase_url": "https://donaeasy-7a7a5-default-rtdb.firebaseio.com",
+    "project_id": "donaeasy-7a7a5",
+    "storage_bucket": "donaeasy-7a7a5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207833360724:android:acfc64680eff53c88b40c1",
+        "mobilesdk_app_id": "1:574223759216:android:beb567c2c8da3af4f041b5",
         "android_client_info": {
           "package_name": "com.example.donaeasy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207833360724-m8vaeuscj1anqlgkf578o9cr82m4r839.apps.googleusercontent.com",
+          "client_id": "574223759216-d93g3ruaae2b8l3d698m0uv70jhu7mgp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAb8OjRypccOYskBvE2g4P5V0ldy-8A9BQ"
+          "current_key": "AIzaSyCp1yozEstEHaPG4ICLKtJBSbObcohNgdM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207833360724-m8vaeuscj1anqlgkf578o9cr82m4r839.apps.googleusercontent.com",
+              "client_id": "574223759216-d93g3ruaae2b8l3d698m0uv70jhu7mgp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

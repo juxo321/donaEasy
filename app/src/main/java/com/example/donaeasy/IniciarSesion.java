@@ -14,6 +14,8 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,7 +31,7 @@ public class IniciarSesion extends AppCompatActivity {
     private EditText txtUsuario;
     private EditText txtContrasena;
 
-        private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DatabaseReference dbDonaEasy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class IniciarSesion extends AppCompatActivity {
 
         txtUsuario = findViewById(R.id.txtUsuarioInicioSesion);
         txtContrasena = findViewById(R.id.txtContrasenaInicioSesion);
+
+        dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
     }
 
@@ -53,24 +57,8 @@ public class IniciarSesion extends AppCompatActivity {
         usuario.setUsuario(txtUsuario.getText().toString());
         usuario.setContrasena(txtContrasena.getText().toString());
 
-        ListenerRegistration listener = db.collection("usuarios")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                        if (e != null) {
-                            return;
-                        }
-                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            Usuario usuarioRecibido = document.toObject(Usuario.class);
-                            lista.add(usuarioRecibido);
-                        }
-                        for (Usuario usuario: lista) {
-                            if (usuario.getUsuario().equals(txtUsuario.getText().toString()) && usuario.getContrasena().equals(txtContrasena.getText().toString())) {
-                                
-                            }
-                        }
-                    }
-                });
+        //dbDonaEasy.
+    });
     }
 
 

@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -34,8 +36,7 @@ public class Registrarse extends AppCompatActivity {
     private  RadioButton radiobtnPaciente;
     private  RadioButton radiobtnDonador;
 
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DatabaseReference dbDonaEasy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,16 @@ public class Registrarse extends AppCompatActivity {
         radiobtnPaciente = findViewById(R.id.RadioPaciente);
         radiobtnDonador = findViewById(R.id.RadioDonador);
 
+        dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
 
     }
 
     public void Registrarse(View view){
         String tipo = "";
+        String usuario = txtUsuario.getText().toString();
+        String contrasena = txtPassword.getText().toString();
+        String id = dbDonaEasy.push().getKey();
 
         if(radiobtnDonador.isChecked()){
             tipo = radiobtnDonador.getText().toString();
@@ -61,19 +66,18 @@ public class Registrarse extends AppCompatActivity {
             tipo = radiobtnPaciente.getText().toString();
         }
 
-        Map<String, Object> usuario = new HashMap<>();
-        usuario.put("usuario", txtUsuario.getText().toString());
-        usuario.put("contrasena", txtPassword.getText().toString());
-        usuario.put("tipo", tipo);
+        Usuario usuarioInsertar = new Usuario();
+        usuarioInsertar.setUsuario(usuario);
+        usuarioInsertar.setContrasena(contrasena);
+        usuarioInsertar.setTipo(tipo);
 
-        System.out.println(txtUsuario.toString());
-        System.out.println(txtPassword.toString());
-        System.out.println(tipo.toString());
+
 
 
 
         // Add a new document with a generated ID
-        if(db.collection("usuarios").add(usuario).isSuccessful()){
+        assert id != null;
+        if(dbDonaEasy.child(id).setValue(usuarioInsertar).isSuccessful()){
             Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
