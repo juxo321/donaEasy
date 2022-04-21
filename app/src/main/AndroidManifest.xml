@@ -16,10 +16,10 @@
             android:name=".DetallesCampania"
             android:exported="false" />
         <activity
-            android:name=".GenerarCampania"
+            android:name=".GuardarCampania"
             android:exported="false" />
         <activity
-            android:name=".MainCampania"
+            android:name=".CrearCampania"
             android:exported="false" />
         <activity
             android:name=".Registrarse"

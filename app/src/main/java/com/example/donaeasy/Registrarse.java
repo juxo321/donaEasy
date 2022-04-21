@@ -75,6 +75,8 @@ public class Registrarse extends AppCompatActivity {
 
 
 
+
+
         // Add a new document with a generated ID
         assert id != null;
         if(dbDonaEasy.child(id).setValue(usuarioInsertar).isSuccessful()){
