@@ -6,8 +6,8 @@ public class Usuario {
     String usuario;
     String contrasena;
     String tipo;
-    Boolean encuestaCompleto;
-    ArrayList<Boolean> respuestasEncuesta;
+    Boolean testCompleto;
+    ArrayList<Boolean> respuestasTest;
 
     public Usuario() {
     }

@@ -19,12 +19,6 @@
             android:name=".DetallesCampania"
             android:exported="false" />
         <activity
-            android:name=".GuardarCampania"
-            android:exported="false" />
-        <activity
-            android:name=".CrearCampania"
-            android:exported="false" />
-        <activity
             android:name=".Registrarse"
             android:exported="false" />
         <activity
