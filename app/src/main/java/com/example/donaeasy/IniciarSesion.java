@@ -40,8 +40,8 @@ public class IniciarSesion extends AppCompatActivity {
 
     boolean banderaUsuarioExiste = false;
 
-    Donador donador = null;
-    Paciente paciente = null;
+    Donador donador;
+    Paciente paciente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,9 @@ public class IniciarSesion extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view){
+
+        donador = null;
+        paciente = null;
 
 
         ArrayList<Usuario> lista = new ArrayList<>();
@@ -88,6 +91,7 @@ public class IniciarSesion extends AppCompatActivity {
                                     donador.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
                                     donador.setId(usuarioBd.getKey());
                                     banderaUsuarioExiste = true;
+                                    break;
                                 }else {
                                     paciente = new Paciente();
                                     paciente.setUsuario(usuario);
@@ -95,8 +99,8 @@ public class IniciarSesion extends AppCompatActivity {
                                     paciente.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     paciente.setId(usuarioBd.getKey());
                                     banderaUsuarioExiste = true;
+                                    break;
                                 }
-                                break;
                             } else {
                                 banderaUsuarioExiste = false;
                             }

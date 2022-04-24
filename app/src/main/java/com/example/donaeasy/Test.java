@@ -63,7 +63,7 @@ public class Test extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        usuarioLogueado = (Donador) getIntent().getExtras().getSerializable("usuario");
+        usuarioLogueado = (Donador) getIntent().getExtras().getSerializable("donador");
 
         dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
@@ -169,8 +169,8 @@ public class Test extends AppCompatActivity {
             || (!radioPregunta7OpcionSi.isChecked() && !radioPregunta7OpcionNo.isChecked() || (!radioPregunta8OpcionSi.isChecked() && !radioPregunta8OpcionNo.isChecked()) || (!radioPregunta9OpcionSi.isChecked() && !radioPregunta9OpcionNo.isChecked()))){
             Toast.makeText(Test.this, "Por favor conteste todas las preguntas", Toast.LENGTH_LONG).show();
         }else {
-            dbDonaEasy.child(id).child("respuestasTest").setValue(listaRespuestasTest);
-            dbDonaEasy.child(id).child("testCompleto").setValue(true);
+            dbDonaEasy.child("Donador").child(id).child("respuestasTest").setValue(listaRespuestasTest);
+            dbDonaEasy.child("Donador").child(id).child("testCompleto").setValue(true);
             Intent intentCampaniasDisponibles =new Intent(Test.this, CampaniasDisponibles.class);
             startActivity(intentCampaniasDisponibles);
         }
