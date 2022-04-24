@@ -9,19 +9,17 @@ public class Paciente implements Serializable {
     String tipo;
     Campania campania;
 
-
     public Paciente() {
     }
 
+    public Paciente(Campania campania) {
+        this.campania = campania;
+    }
 
     public Paciente(String id, String usuario, String contrasena, String tipo) {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.tipo = tipo;
-    }
-
-    public Paciente(Campania campania) {
-        this.campania = campania;
     }
 
     public String getId() {

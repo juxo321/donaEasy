@@ -20,14 +20,14 @@
 
     <ScrollView
         android:id="@+id/l"
-        android:layout_width="412dp"
-        android:layout_height="425dp"
+        android:layout_width="match_parent"
+        android:layout_height="293dp"
         android:accessibilityLiveRegion="none"
         android:fillViewport="false"
         android:padding="50px"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="120dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="120dp">
 
         <FrameLayout
             android:id="@+id/linearLayoutGenerarCampania"
@@ -81,7 +81,7 @@
                     android:text="Tipo de sangre: " />
 
                 <TextView
-                    android:id="@+id/txtDonadoresRequeridos"
+                    android:id="@+id/txtDonadoresNecesarios"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
@@ -114,30 +114,85 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
+                    android:layout_marginTop="300px"
                     android:layout_marginBottom="0px"
                     android:background="@color/azulPrimary" />
 
                 <TextView
                     android:id="@+id/txtDescripcion"
-                    android:layout_width="103dp"
-                    android:layout_height="22dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Descripcion: " />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="300px"
+                    android:layout_marginBottom="0px"
+                    android:background="@color/azulPrimary" />
+
             </LinearLayout>
+
+
         </FrameLayout>
 
 
     </ScrollView>
 
     <Button
-        android:id="@+id/btnCrearCampania"
+        android:id="@+id/ModificarCampania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:backgroundTint="@color/rojoPrimary"
-        android:fontFamily="@font/roboto"
+        android:onClick="formularioCampania"
+        android:text="Modificar"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <Button
+        android:id="@+id/EliminarCampania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/rojoPrimary"
+        android:onClick="formularioCampania"
+        android:text="Eliminar"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ModificarCampania"
+        app:layout_constraintTop_toBottomOf="@+id/l"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <Button
+        android:id="@+id/verEstadoCampania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/rojoPrimary"
+        android:onClick="formularioCampania"
+        android:text="Ver estado de la campaña"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrearCampania"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l"
+        app:layout_constraintVertical_bias="0.416" />
+
+    <Button
+        android:id="@+id/btnCrearCampania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="@color/rojoPrimary"
         android:onClick="formularioCampania"
         android:text="Crear campaña"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,5 +200,5 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.907" />
 </androidx.constraintlayout.widget.ConstraintLayout>
