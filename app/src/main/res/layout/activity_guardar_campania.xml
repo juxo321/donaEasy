@@ -4,164 +4,195 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/white"
     tools:context=".GuardarCampania">
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="178dp"
-        android:layout_height="36dp"
+        android:layout_width="357dp"
+        android:layout_height="45dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Mi campaña"
-        android:textSize="20sp"
+        android:text="Generar Campaña:"
+        android:textColor="@color/black"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.083" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="215dp"
-        android:layout_height="28dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="generar campaña"
-        android:textSize="16sp"
+    <EditText
+        android:id="@+id/txtDescripcion"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:ems="10"
+        android:hint="Añade una descripción"
+        android:inputType="textLongMessage|textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="86dp"
-        android:layout_height="32dp"
-        android:text="Nombre"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintTop_toTopOf="@+id/txtUbicacion"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/txtNombrePaciente"
         android:layout_width="317dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
+        android:drawableTint="#65FFFFFF"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:fontFamily="@font/roboto"
+        android:foregroundTint="#66FFFFFF"
+        android:hint="Ingresa tu nombre completo"
+        android:inputType="textShortMessage|textPersonName"
+        android:textColorHint="#32FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.019" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="146dp"
-        android:layout_height="22dp"
-        android:text="Donadores necesarios"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="240dp" />
-
-    <EditText
-        android:id="@+id/txtDonadoresNecesarios"
-        android:layout_width="325dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="132dp"
         android:layout_height="29dp"
+        android:fontFamily="@font/roboto"
         android:text="Tipo de sangre"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDonadoresNecesarios"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.002" />
 
-    <EditText
-        android:id="@+id/txtTipoSangre"
-        android:layout_width="330dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="86dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="Nombre"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="149dp"
+        android:layout_height="29dp"
+        android:fontFamily="@font/roboto"
+        android:text="Descripción"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUbicacion"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/txtDonadoresNecesarios"
+        android:layout_width="325dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Ingresa la cantidad de donadores"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombrePaciente"
+        app:layout_constraintVertical_bias="0.072" />
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="154dp"
-        android:layout_height="41dp"
+        android:layout_width="153dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/roboto"
         android:text="Ubicación"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTipoSangre"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.575" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="146dp"
+        android:layout_height="22dp"
+        android:fontFamily="@font/roboto"
+        android:text="Donadores necesarios"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
 
     <EditText
         android:id="@+id/txtUbicacion"
         android:layout_width="326dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:ems="10"
+        android:hint="Ingresa tu ubicación"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:layout_constraintVertical_bias="0.07" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="131dp"
-        android:layout_height="34dp"
-        android:text="Descripción"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUbicacion"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="320dp"
-        android:layout_height="44dp"
+        android:id="@+id/txtTipoSangre"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
         android:ems="10"
+        android:hint="Ingresa tu tipo de sangre"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="150dp"
-        android:layout_height="47dp"
-        android:text="Guardar"
+        android:layout_width="141dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/rojoPrimary"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="651dp" />
+        android:fontFamily="@font/roboto"
+        android:text="Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="89dp"
+        android:layout_height="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/donaeasylogo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
