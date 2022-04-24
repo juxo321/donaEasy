@@ -1,8 +1,10 @@
 package com.example.donaeasy;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario {
+public class Usuario implements Serializable {
+    String id;
     String usuario;
     String contrasena;
     String tipo;
@@ -12,12 +14,24 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String usuario, String contrasena, String tipo, Boolean encuestaCompleto, ArrayList<Boolean> respuestasEncuesta) {
+    public Usuario(Boolean testCompleto) {
+        this.testCompleto = testCompleto;
+    }
+
+    public Usuario(String id, String usuario, String contrasena, String tipo, Boolean testCompleto, ArrayList<Boolean> respuestasTest) {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.tipo = tipo;
-        this.encuestaCompleto = encuestaCompleto;
-        this.respuestasEncuesta = respuestasEncuesta;
+        this.testCompleto = testCompleto;
+        this.respuestasTest = respuestasTest;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsuario() {
@@ -44,30 +58,20 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public Boolean getEncuestaCompleto() {
-        return encuestaCompleto;
+    public Boolean getTestCompleto() {
+        return testCompleto;
     }
 
-    public void setEncuestaCompleto(Boolean encuestaCompleto) {
-        this.encuestaCompleto = encuestaCompleto;
+    public void setTestCompleto(Boolean testCompleto) {
+        this.testCompleto = testCompleto;
     }
 
-    public ArrayList<Boolean> getRespuestasEncuesta() {
-        return respuestasEncuesta;
+    public ArrayList<Boolean> getRespuestasTest() {
+        return respuestasTest;
     }
 
-    public void setRespuestasEncuesta(ArrayList<Boolean> respuestasEncuesta) {
-        this.respuestasEncuesta = respuestasEncuesta;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "usuario='" + usuario + '\'' +
-                ", contrasena='" + contrasena + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", encuestaCompleto=" + encuestaCompleto +
-                ", respuestasEncuesta=" + respuestasEncuesta +
-                '}';
+    public void setRespuestasTest(ArrayList<Boolean> respuestasTest) {
+        this.respuestasTest = respuestasTest;
     }
 }
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textView16" type="id" />
+    <item name="radioGrupoPregunta1" type="id" />
+    <item name="RadioPregunta1OpcionSi" type="id" />
+    <item name="RadioPregunta1OpcionNo" type="id" />
+    <item name="textView17" type="id" />
+    <item name="radioGrupoPregunta3" type="id" />
+    <item name="RadioPregunta3OpcionSi" type="id" />
+    <item name="radioGrupoPregunta3OpcionNo" type="id" />
+    <item name="textView18" type="id" />
+    <item name="radioGrupoPregunta4" type="id" />
+    <item name="RadioPregunta4OpcionSi" type="id" />
+    <item name="radioGrupoPregunta4OpcionNo" type="id" />
+    <item name="textView19" type="id" />
+    <item name="radioGrupoPregunta5" type="id" />
+    <item name="RadioPregunta5OpcionSi" type="id" />
+    <item name="radioGrupoPregunta5OpcionNo" type="id" />
+    <item name="textView20" type="id" />
+    <item name="radioGrupoPregunta6" type="id" />
+    <item name="RadioPregunta6OpcionSi" type="id" />
+    <item name="radioGrupoPregunta6OpcionNo" type="id" />
+    <item name="textView21" type="id" />
+    <item name="radioGrupoPregunta7" type="id" />
+    <item name="RadioPregunta7OpcionSi" type="id" />
+    <item name="radioGrupoPregunta7OpcionNo" type="id" />
+    <item name="textView22" type="id" />
+    <item name="radioGrupoPregunta8" type="id" />
+    <item name="RadioPregunta8OpcionSi" type="id" />
+    <item name="radioGrupoPregunta8OpcionNo" type="id" />
+    <item name="textView23" type="id" />
+    <item name="radioGrupoPregunta9" type="id" />
+    <item name="RadioPregunta9OpcionSi" type="id" />
+    <item name="radioGrupoPregunta9OpcionNo" type="id" />
+</resources>

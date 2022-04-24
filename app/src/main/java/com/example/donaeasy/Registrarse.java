@@ -66,16 +66,10 @@ public class Registrarse extends AppCompatActivity {
             tipo = radiobtnPaciente.getText().toString();
         }
 
-        Usuario usuarioInsertar = new Usuario();
+        Usuario usuarioInsertar = new Usuario(false);
         usuarioInsertar.setUsuario(usuario);
         usuarioInsertar.setContrasena(contrasena);
         usuarioInsertar.setTipo(tipo);
-
-
-
-
-
-
 
         // Add a new document with a generated ID
         assert id != null;

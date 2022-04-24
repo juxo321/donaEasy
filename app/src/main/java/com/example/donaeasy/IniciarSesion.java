@@ -75,6 +75,8 @@ public class IniciarSesion extends AppCompatActivity {
                     for (DataSnapshot usuarioBd: snapshot.getChildren()){
                         if(usuario.getUsuario().equals(usuarioBd.child("usuario").getValue().toString()) && usuario.getContrasena().equals(usuarioBd.child("contrasena").getValue().toString())){
                             usuario.setTipo(usuarioBd.child("tipo").getValue().toString());
+                            usuario.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
+                            usuario.setId(usuarioBd.getKey());
                             banderaUsuarioExiste = true;
                             break;
                         }else{
@@ -86,12 +88,21 @@ public class IniciarSesion extends AppCompatActivity {
                 if(banderaUsuarioExiste){
                     if(usuario.getTipo().equals("Paciente")){
                         Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentCrearCampania =new Intent(IniciarSesion.this, CrearCampania.class);
-                        startActivity(intentCrearCampania);
+                        //Intent intentTest =new Intent(IniciarSesion.this, Test.class);
+                        //startActivity(intentTest);
                     }else {
-                        Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, CampaniasDisponibles.class);
-                        startActivity(intentCampaniasDisponibles);
+                        if(!usuario.getTestCompleto()){
+                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                            Intent intentTest =new Intent(IniciarSesion.this, Test.class);
+                            intentTest.putExtra("usuario", usuario);
+                            startActivity(intentTest);
+
+                        }else{
+                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                            Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, CampaniasDisponibles.class);
+                            startActivity(intentCampaniasDisponibles);
+                        }
+
                     }
                 }else {
                     Toast.makeText(IniciarSesion.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
