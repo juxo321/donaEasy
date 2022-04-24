@@ -1,528 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/l"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Test">
+    android:layout_height="wrap_content"
+    android:accessibilityLiveRegion="none"
+    android:fillViewport="false"
+    android:onClick="enviarTest"
+    android:padding="50px">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="166dp"
-        android:layout_height="36dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Test de donacion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:padding="20px"
+        android:paddingVertical="20px"
+        android:paddingLeft="20px"
+        android:paddingTop="20px"
+        android:paddingRight="20px"
+        android:paddingBottom="20px">
 
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="418dp"
-        android:layout_height="54dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Hola futuro donador, contesta las siguientes preguntas seleccionando alguna de las casillas "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
-    <ScrollView
-        android:layout_width="559dp"
-        android:layout_height="823dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:fontFamily="@font/roboto_medium"
+            android:text="1.¿Cuentas con una identificacion oficial?" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="319dp"
-        android:layout_height="54dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Has  estado embarazada o has amamantado en los ultimos 12 meses?(En caso de ser hombre selecciona no)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta2"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251">
+            <RadioButton
+                android:id="@+id/radioPregunta1OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-        <RadioButton
-            android:id="@+id/RadioPregunta2OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+            <RadioButton
+                android:id="@+id/radioPregunta1OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
 
-        <RadioButton
-            android:id="@+id/radioPregunta2OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-    </RadioGroup>
+        </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="301dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Cuentas con una identificacion oficial?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.212" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta1"
-        android:layout_width="283dp"
-        android:layout_height="51dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.159">
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="2.¿Has  estado embarazada o has amamantado en los ultimos 12 meses?(En caso de ser hombre selecciona no)" />
 
-        <RadioButton
-            android:id="@+id/RadioPregunta1OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/RadioPregunta1OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            <RadioButton
+                android:id="@+id/radioPregunta2OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioPregunta2OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="278dp"
-        android:layout_height="26dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Tienes entre 18 y 65 años?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta3"
-        android:layout_width="294dp"
-        android:layout_height="56dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35">
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="3.¿Tienes entre 18 y 65 años?" />
 
-        <RadioButton
-            android:id="@+id/RadioPregunta3OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta3OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioPregunta3OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="237dp"
-        android:layout_height="31dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Tienes sobrepeso u obesidad?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+            <RadioButton
+                android:id="@+id/radioPregunta3OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta4"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="656dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
-        app:layout_constraintStart_toStartOf="parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-        <RadioButton
-            android:id="@+id/RadioPregunta4OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="4.¿Tienes sobrepeso u obesidad?" />
 
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta4OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioPregunta4OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="285dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Pesas mas de 50 kilogramos?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+            <RadioButton
+                android:id="@+id/radioPregunta4OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta5"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516">
+        </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/RadioPregunta5OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta5OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="5.¿Tienes un peso mayor a 50 kg?" />
 
-    </RadioGroup>
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="167dp"
-        android:layout_height="34dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Padeces diabetes?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564" />
+            <RadioButton
+                android:id="@+id/radioPregunta5OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta6"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611">
+            <RadioButton
+                android:id="@+id/radioPregunta5OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
 
-        <RadioButton
-            android:id="@+id/RadioPregunta6OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+        </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta6OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-    </RadioGroup>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="430dp"
-        android:layout_height="55dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="¿Tienes tatuajes, te has sometido a endodoncias, procedimientos de acupuntura , alguna perforacion o sometido a alguna operacion en los ultimos 12 meses?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="6.¿Padeces diabetes?" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta7"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.708">
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/RadioPregunta7OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+            <RadioButton
+                android:id="@+id/radioPregunta6OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
 
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta7OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioPregunta6OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="254dp"
-        android:layout_height="37dp"
-        android:text="¿Has recibido vacunas el ultimo mes?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
 
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta8"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798">
-
-        <RadioButton
-            android:id="@+id/RadioPregunta8OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
-
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta8OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="368dp"
-        android:layout_height="35dp"
-        android:text="¿Has tenido gripe, tos, diarrea o infeccion dental en los ultimos 14 dias?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839" />
-
-    <RadioGroup
-        android:id="@+id/radioGrupoPregunta9"
-        android:layout_width="291dp"
-        android:layout_height="49dp"
-        android:checkedButton="@id/RadioDonador"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89">
-
-        <RadioButton
-            android:id="@+id/RadioPregunta9OpcionSi"
-            android:layout_width="158dp"
-            android:layout_height="55dp"
-            android:checked="false"
-            android:text="@string/opcionSI"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
-
-        <RadioButton
-            android:id="@+id/radioGrupoPregunta9OpcionNo"
-            android:layout_width="116dp"
-            android:layout_height="49dp"
-            android:checked="false"
-            android:text="@string/opcionNo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
-
-    </RadioGroup>
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="7.¿Tienes tatuajes, te has sometido a endodoncias, procedimientos de acupuntura , alguna perforacion o sometido a alguna operacion en los ultimos 12 meses?" />
 
 
-    </ScrollView>
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/radioPregunta7OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta7OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.¿Has recibido vacunas el ultimo mes?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta8OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta8OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.¿Has tenido gripe, tos, diarrea o infeccion dental en los ultimos 14 dias?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta9OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta9OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btnEnviarTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/rojoPrimary"
+            android:onClick="enviarTest"
+            android:text="Enviar" />
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+

@@ -40,6 +40,9 @@ public class IniciarSesion extends AppCompatActivity {
 
     boolean banderaUsuarioExiste = false;
 
+    Donador donador;
+    Paciente paciente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,39 +62,75 @@ public class IniciarSesion extends AppCompatActivity {
 
     public void iniciarSesion(View view){
 
-        Usuario usuario = new Usuario();
+        donador = null;
+        paciente = null;
+
+
         ArrayList<Usuario> lista = new ArrayList<>();
 
-        usuario.setUsuario(txtUsuario.getText().toString());
-        usuario.setContrasena(txtContrasena.getText().toString());
+        String usuario = txtUsuario.getText().toString();
+        String contrasena = txtContrasena.getText().toString();
 
         dbDonaEasy = FirebaseDatabase.getInstance().getReference();
         Query query = dbDonaEasy.child("DonaEasy");
+
+
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if ((snapshot.exists())){
-                    for (DataSnapshot usuarioBd: snapshot.getChildren()){
-                        if(usuario.getUsuario().equals(usuarioBd.child("usuario").getValue().toString()) && usuario.getContrasena().equals(usuarioBd.child("contrasena").getValue().toString())){
-                            usuario.setTipo(usuarioBd.child("tipo").getValue().toString());
-                            banderaUsuarioExiste = true;
+                    for (DataSnapshot tipoUsuario: snapshot.getChildren()){
+                        for (DataSnapshot usuarioBd: tipoUsuario.getChildren()) {
+                            if (usuario.equals(usuarioBd.child("usuario").getValue().toString()) && contrasena.equals(usuarioBd.child("contrasena").getValue().toString())) {
+                                if (usuarioBd.child("tipo").getValue().toString().equals("Donador")){
+                                    donador = new Donador();
+                                    donador.setUsuario(usuario);
+                                    donador.setContrasena(contrasena);
+                                    donador.setTipo(usuarioBd.child("tipo").getValue().toString());
+                                    donador.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
+                                    donador.setId(usuarioBd.getKey());
+                                    banderaUsuarioExiste = true;
+                                    break;
+                                }else {
+                                    paciente = new Paciente();
+                                    paciente.setUsuario(usuario);
+                                    paciente.setContrasena(contrasena);
+                                    paciente.setTipo(usuarioBd.child("tipo").getValue().toString());
+                                    paciente.setId(usuarioBd.getKey());
+                                    banderaUsuarioExiste = true;
+                                    break;
+                                }
+                            } else {
+                                banderaUsuarioExiste = false;
+                            }
+                        }
+                        if(banderaUsuarioExiste){
                             break;
-                        }else{
-                            banderaUsuarioExiste = false;
                         }
                     }
                 }
 
+
+
                 if(banderaUsuarioExiste){
-                    if(usuario.getTipo().equals("Paciente")){
+                    if(paciente != null){
                         Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentCrearCampania =new Intent(IniciarSesion.this, CrearCampania.class);
-                        startActivity(intentCrearCampania);
+                        Intent intentTest =new Intent(IniciarSesion.this, Test.class);
+                        startActivity(intentTest);
                     }else {
-                        Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, CampaniasDisponibles.class);
-                        startActivity(intentCampaniasDisponibles);
+                        if(!donador.getTestCompleto()){
+                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                            Intent intentTest =new Intent(IniciarSesion.this, Test.class);
+                            intentTest.putExtra("donador", donador);
+                            startActivity(intentTest);
+
+                        }else{
+                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                            Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, CampaniasDisponibles.class);
+                            startActivity(intentCampaniasDisponibles);
+                        }
+
                     }
                 }else {
                     Toast.makeText(IniciarSesion.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();

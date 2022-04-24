@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy" >
+<<<<<<< HEAD
         <activity
             android:name=".testPrueba"
             android:exported="false" />
+=======
+>>>>>>> ad2b3d00badba119f58f305f0d122679b98a4069
         <activity
             android:name=".Test"
             android:exported="false" />

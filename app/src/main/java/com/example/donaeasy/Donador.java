@@ -3,7 +3,7 @@ package com.example.donaeasy;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario implements Serializable {
+public class Donador implements Serializable {
     String id;
     String usuario;
     String contrasena;
@@ -11,14 +11,14 @@ public class Usuario implements Serializable {
     Boolean testCompleto;
     ArrayList<Boolean> respuestasTest;
 
-    public Usuario() {
+    public Donador() {
     }
 
-    public Usuario(Boolean testCompleto) {
+    public Donador(Boolean testCompleto) {
         this.testCompleto = testCompleto;
     }
 
-    public Usuario(String id, String usuario, String contrasena, String tipo, Boolean testCompleto, ArrayList<Boolean> respuestasTest) {
+    public Donador(String id, String usuario, String contrasena, String tipo, Boolean testCompleto, ArrayList<Boolean> respuestasTest) {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.tipo = tipo;
@@ -74,4 +74,3 @@ public class Usuario implements Serializable {
         this.respuestasTest = respuestasTest;
     }
 }
-
