@@ -28,23 +28,19 @@ public class GenerarCampania extends AppCompatActivity {
 
         TextView txtNombre = findViewById(R.id.txtNombre);
         TextView txtTipoSangre = findViewById(R.id.txtTipoSangre);
-        TextView txtDonadoresRequerid = findViewById(R.id.txtDonadoresRequeridos);
+        TextView txtDonadoresNecesarios = findViewById(R.id.txtDonadoresNecesarios);
         TextView txtUbicacion = findViewById(R.id.txtUbicacion);
         TextView txtDescripcion = findViewById(R.id.txtDescripcion);
 
         Paciente paciente = (Paciente) getIntent().getExtras().getSerializable("paciente");
         if(paciente.getCampania() !=null){
             btnCrearCampania.setEnabled(false);
-            txtNombre.append(paciente.getUsuario());
+            txtNombre.append(paciente.getCampania().getNombrePaciente());
+            txtTipoSangre.append(paciente.getCampania().getTipoSangre());
+            txtDonadoresNecesarios.append(String.valueOf(paciente.getCampania().getDonadoresNecesarios()));
+            txtUbicacion.append(paciente.getCampania().getUbicacion());
+            txtDescripcion.append(paciente.getCampania().getDescripcion());
         }
-
-
-
-
-
-
-
-
 
     }
 
