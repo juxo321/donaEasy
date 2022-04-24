@@ -37,6 +37,9 @@ public class Registrarse extends AppCompatActivity {
     private  RadioButton radiobtnPaciente;
     private  RadioButton radiobtnDonador;
 
+    private Paciente paciente;
+    private Donador donador;
+
     private DatabaseReference dbDonaEasy;
 
     @Override
@@ -62,26 +65,29 @@ public class Registrarse extends AppCompatActivity {
         String id = dbDonaEasy.push().getKey();
 
         if(radiobtnDonador.isChecked()){
+            donador = new Donador(false);
             tipo = radiobtnDonador.getText().toString();
+            donador.setUsuario(usuario);
+            donador.setContrasena(contrasena);
+            donador.setTipo(tipo);
         }else if (radiobtnPaciente.isChecked()){
+            paciente = new Paciente(null);
             tipo = radiobtnPaciente.getText().toString();
+            paciente.setUsuario(usuario);
+            paciente.setContrasena(contrasena);
+            paciente.setTipo(tipo);
         }
-
-        Usuario usuarioInsertar = new Usuario(false);
-        usuarioInsertar.setUsuario(usuario);
-        usuarioInsertar.setContrasena(contrasena);
-        usuarioInsertar.setTipo(tipo);
 
         // Add a new document with a generated ID
         assert id != null;
-        if(usuarioInsertar.getTipo().equals("Donador")){
-            if(dbDonaEasy.child("Donador").child(id).setValue(usuarioInsertar).isSuccessful()){
+        if(tipo.equals("Donador")){
+            if(dbDonaEasy.child("Donador").child(id).setValue(donador).isSuccessful()){
                 Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
             }
         }else{
-            if(dbDonaEasy.child("Paciente").child(id).setValue(usuarioInsertar).isSuccessful()){
+            if(dbDonaEasy.child("Paciente").child(id).setValue(paciente).isSuccessful()){
                 Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();

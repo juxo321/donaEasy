@@ -98,6 +98,7 @@ public class IniciarSesion extends AppCompatActivity {
                                     paciente.setContrasena(contrasena);
                                     paciente.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     paciente.setId(usuarioBd.getKey());
+                                    paciente.setCampania((Campania) usuarioBd.child("campania").getValue());
                                     banderaUsuarioExiste = true;
                                     break;
                                 }
@@ -116,8 +117,9 @@ public class IniciarSesion extends AppCompatActivity {
                 if(banderaUsuarioExiste){
                     if(paciente != null){
                         Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentTest =new Intent(IniciarSesion.this, Test.class);
-                        startActivity(intentTest);
+                        Intent intentGuardarCampania =new Intent(IniciarSesion.this, GenerarCampania.class);
+                        intentGuardarCampania.putExtra("paciente",paciente);
+                        startActivity(intentGuardarCampania);
                     }else {
                         if(!donador.getTestCompleto()){
                             Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();

@@ -9,6 +9,7 @@ public class Paciente implements Serializable {
     String tipo;
     Campania campania;
 
+
     public Paciente() {
     }
 
@@ -17,6 +18,10 @@ public class Paciente implements Serializable {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.tipo = tipo;
+    }
+
+    public Paciente(Campania campania) {
+        this.campania = campania;
     }
 
     public String getId() {
