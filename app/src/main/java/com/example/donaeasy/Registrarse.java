@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -73,11 +74,20 @@ public class Registrarse extends AppCompatActivity {
 
         // Add a new document with a generated ID
         assert id != null;
-        if(dbDonaEasy.child(id).setValue(usuarioInsertar).isSuccessful()){
-            Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+        if(usuarioInsertar.getTipo().equals("Donador")){
+            if(dbDonaEasy.child("Donador").child(id).setValue(usuarioInsertar).isSuccessful()){
+                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
+            }
         }else{
-            Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+            if(dbDonaEasy.child("Paciente").child(id).setValue(usuarioInsertar).isSuccessful()){
+                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
+            }
         }
+
 
         Intent intentIniciarSesion =new Intent(Registrarse.this, IniciarSesion.class);
         startActivity(intentIniciarSesion);

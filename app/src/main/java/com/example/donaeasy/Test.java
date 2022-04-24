@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Test extends AppCompatActivity {
 
-    Usuario usuarioLogueado;
+    Donador usuarioLogueado;
 
     private DatabaseReference dbDonaEasy;
 
@@ -63,7 +63,7 @@ public class Test extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        usuarioLogueado = (Usuario) getIntent().getExtras().getSerializable("usuario");
+        usuarioLogueado = (Donador) getIntent().getExtras().getSerializable("usuario");
 
         dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
