@@ -15,19 +15,20 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/l"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
         android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="293dp"
+        android:layout_marginBottom="216dp"
         android:accessibilityLiveRegion="none"
         android:fillViewport="false"
         android:padding="50px"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="120dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <FrameLayout
             android:id="@+id/linearLayoutGenerarCampania"
@@ -176,16 +177,17 @@
         android:id="@+id/verEstadoCampania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:backgroundTint="@color/rojoPrimary"
         android:onClick="formularioCampania"
         android:text="Ver estado de la campaña"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrearCampania"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintVertical_bias="0.305" />
 
     <Button
         android:id="@+id/btnCrearCampania"
