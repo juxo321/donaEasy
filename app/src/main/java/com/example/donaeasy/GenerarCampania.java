@@ -35,9 +35,10 @@ public class GenerarCampania extends AppCompatActivity {
         Paciente paciente = (Paciente) getIntent().getExtras().getSerializable("paciente");
         if(paciente.getCampania() !=null){
             btnCrearCampania.setEnabled(false);
+            txtNombre.append(paciente.getUsuario());
         }
 
-        
+
 
 
 
