@@ -16,13 +16,15 @@
         app:layout_constraintBottom_toTopOf="@+id/l"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
 
     <ScrollView
         android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="293dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="336dp"
         android:accessibilityLiveRegion="none"
         android:fillViewport="false"
         android:padding="50px"
@@ -56,6 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
+                android:layout_marginStart="100px"
+                android:layout_marginTop="50px"
                 android:background="@drawable/border"
                 android:orientation="vertical"
                 android:padding="10px"

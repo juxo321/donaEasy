@@ -11,10 +11,15 @@ import android.widget.TextView;
 
 public class GenerarCampania extends AppCompatActivity {
 
+    Paciente paciente;
+
+    boolean primerIngreso;
+
+
     Button btnCrearCampania ;
     TextView txtNombre;
     TextView txtTipoSangre;
-    TextView txtDonadoresRequeridos;
+    TextView txtDonadoresNecesarios;
     TextView txtUbicacion;
     TextView txtDescripcion;
 
@@ -26,13 +31,20 @@ public class GenerarCampania extends AppCompatActivity {
 
         btnCrearCampania = findViewById(R.id.btnCrearCampania);
 
-        TextView txtNombre = findViewById(R.id.txtNombre);
-        TextView txtTipoSangre = findViewById(R.id.txtTipoSangre);
-        TextView txtDonadoresNecesarios = findViewById(R.id.txtDonadoresNecesarios);
-        TextView txtUbicacion = findViewById(R.id.txtUbicacion);
-        TextView txtDescripcion = findViewById(R.id.txtDescripcion);
+        txtNombre = findViewById(R.id.txtNombre);
+        txtTipoSangre = findViewById(R.id.txtTipoSangre);
+        txtDonadoresNecesarios = findViewById(R.id.txtDonadoresNecesarios);
+        txtUbicacion = findViewById(R.id.txtUbicacion);
+        txtDescripcion = findViewById(R.id.txtDescripcion);
 
-        Paciente paciente = (Paciente) getIntent().getExtras().getSerializable("paciente");
+        if(getIntent().getExtras().getSerializable("paciente") !=null) {
+            paciente = (Paciente) getIntent().getExtras().getSerializable("paciente");
+        }else if(getIntent().getExtras().getSerializable("pacienteGuardar") !=null){
+            paciente = (Paciente) getIntent().getExtras().getSerializable("pacienteGuardar");
+        }
+
+
+
         if(paciente.getCampania() !=null){
             btnCrearCampania.setEnabled(false);
             txtNombre.append(paciente.getCampania().getNombrePaciente());
@@ -46,6 +58,7 @@ public class GenerarCampania extends AppCompatActivity {
 
     public void formularioCampania(View view){
         Intent intentGuardarCampania =new Intent(GenerarCampania.this, GuardarCampania.class);
+        intentGuardarCampania.putExtra("paciente", paciente);
         startActivity(intentGuardarCampania);
     }
 
