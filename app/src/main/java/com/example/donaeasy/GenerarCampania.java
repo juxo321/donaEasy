@@ -2,12 +2,17 @@ package com.example.donaeasy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class GenerarCampania extends AppCompatActivity {
 
@@ -23,6 +28,8 @@ public class GenerarCampania extends AppCompatActivity {
     TextView txtUbicacion;
     TextView txtDescripcion;
 
+    private DatabaseReference dbDonaEasy;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,8 @@ public class GenerarCampania extends AppCompatActivity {
         txtDonadoresNecesarios = findViewById(R.id.txtDonadoresNecesarios);
         txtUbicacion = findViewById(R.id.txtUbicacion);
         txtDescripcion = findViewById(R.id.txtDescripcion);
+
+        dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
         if(getIntent().getExtras().getSerializable("paciente") !=null) {
             paciente = (Paciente) getIntent().getExtras().getSerializable("paciente");
@@ -62,5 +71,51 @@ public class GenerarCampania extends AppCompatActivity {
         startActivity(intentGuardarCampania);
     }
 
+    public void modificarCampania(View view){
+        Intent intentModificarCampania =new Intent(GenerarCampania.this, ModificarCampania.class);
+        intentModificarCampania.putExtra("pacienteModificar", paciente);
+        startActivity(intentModificarCampania);
+    }
+
+
+
+    public void eliminarCampania(View view){
+        new AlertDialog.Builder(this)
+                .setTitle("Borrar Campaña")
+                .setMessage("¿Desea borrar la campaña?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").removeValue();
+                        paciente = null;
+                        txtNombre.setText("Nombre: ");
+                        txtTipoSangre.setText("Tipo de sangre: ");
+                        txtDonadoresNecesarios.setText("Donadores requeridos: ");
+                        txtUbicacion.setText("Ubicación: ");
+                        txtDescripcion.setText("Descripción");
+                        btnCrearCampania.setEnabled(true);
+                        Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_delete)
+                .show();
+    }
+
+    public void verificarEstadoDeLaCampania(View view){
+        if(paciente != null){
+            AlertDialog alertDialog = new AlertDialog.Builder(GenerarCampania.this).create();
+            alertDialog.setTitle("Estado de la campaña");
+            alertDialog.setMessage("Donadores faltantes: "+ paciente.getCampania().getDonadoresNecesarios());
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }else {
+            Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
