@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
-            android:name=".ModificarCampana"
+            android:name=".ModificarCampania"
             android:exported="false" />
         <activity
             android:name=".GuardarCampania"

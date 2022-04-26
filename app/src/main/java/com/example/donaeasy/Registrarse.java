@@ -59,43 +59,51 @@ public class Registrarse extends AppCompatActivity {
     }
 
     public void Registrarse(View view){
-        String tipo = "";
-        String usuario = txtUsuario.getText().toString();
-        String contrasena = txtPassword.getText().toString();
-        String id = dbDonaEasy.push().getKey();
+        if(txtUsuario.getText().toString().trim().equals("") && txtUsuario.getText().toString().trim().equals("")){
+            String tipo = "";
+            String usuario = txtUsuario.getText().toString();
+            String contrasena = txtPassword.getText().toString();
+            String id = dbDonaEasy.push().getKey();
 
-        if(radiobtnDonador.isChecked()){
-            donador = new Donador(false);
-            tipo = radiobtnDonador.getText().toString();
-            donador.setUsuario(usuario);
-            donador.setContrasena(contrasena);
-            donador.setTipo(tipo);
-        }else if (radiobtnPaciente.isChecked()){
-            paciente = new Paciente(null);
-            tipo = radiobtnPaciente.getText().toString();
-            paciente.setUsuario(usuario);
-            paciente.setContrasena(contrasena);
-            paciente.setTipo(tipo);
+            if(radiobtnDonador.isChecked()){
+                donador = new Donador(false);
+                tipo = radiobtnDonador.getText().toString();
+                donador.setUsuario(usuario);
+                donador.setContrasena(contrasena);
+                donador.setTipo(tipo);
+            }else if (radiobtnPaciente.isChecked()){
+                paciente = new Paciente(null);
+                tipo = radiobtnPaciente.getText().toString();
+                paciente.setUsuario(usuario);
+                paciente.setContrasena(contrasena);
+                paciente.setTipo(tipo);
+            }
+
+            // Add a new document with a generated ID
+            if(!txtUsuario.getText().toString().trim().equals("") && !txtPassword.getText().toString().trim().equals("")){
+                assert id != null;
+                if(tipo.equals("Donador")){
+                    try {
+                        dbDonaEasy.child("Donador").child(id).setValue(donador);
+                        Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+                        Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+
+                    try {
+                        dbDonaEasy.child("Paciente").child(id).setValue(paciente);
+                        Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+                        Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }else {
+                Toast.makeText(this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT).show();
+            }
+            Intent intentIniciarSesion =new Intent(Registrarse.this, IniciarSesion.class);
+            startActivity(intentIniciarSesion);
         }
 
-        // Add a new document with a generated ID
-        assert id != null;
-        if(tipo.equals("Donador")){
-            if(dbDonaEasy.child("Donador").child(id).setValue(donador).isSuccessful()){
-                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            if(dbDonaEasy.child("Paciente").child(id).setValue(paciente).isSuccessful()){
-                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-
-        Intent intentIniciarSesion =new Intent(Registrarse.this, IniciarSesion.class);
-        startActivity(intentIniciarSesion);
     }
 }
