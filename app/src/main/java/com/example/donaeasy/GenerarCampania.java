@@ -80,25 +80,30 @@ public class GenerarCampania extends AppCompatActivity {
 
 
     public void eliminarCampania(View view){
-        new AlertDialog.Builder(this)
-                .setTitle("Borrar Campaña")
-                .setMessage("¿Desea borrar la campaña?")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").removeValue();
-                        paciente = null;
-                        txtNombre.setText("Nombre: ");
-                        txtTipoSangre.setText("Tipo de sangre: ");
-                        txtDonadoresNecesarios.setText("Donadores requeridos: ");
-                        txtUbicacion.setText("Ubicación: ");
-                        txtDescripcion.setText("Descripción");
-                        btnCrearCampania.setEnabled(true);
-                        Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, null)
-                .setIcon(android.R.drawable.ic_delete)
-                .show();
+        try {
+            new AlertDialog.Builder(this)
+                    .setTitle("Borrar Campaña")
+                    .setMessage("¿Desea borrar la campaña?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").removeValue();
+                            paciente = null;
+                            txtNombre.setText("Nombre: ");
+                            txtTipoSangre.setText("Tipo de sangre: ");
+                            txtDonadoresNecesarios.setText("Donadores requeridos: ");
+                            txtUbicacion.setText("Ubicación: ");
+                            txtDescripcion.setText("Descripción");
+                            btnCrearCampania.setEnabled(true);
+                            Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_delete)
+                    .show();
+        }catch(Exception e){
+            Toast.makeText(GenerarCampania.this, "Error al eliminar la campaña", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void verificarEstadoDeLaCampania(View view){

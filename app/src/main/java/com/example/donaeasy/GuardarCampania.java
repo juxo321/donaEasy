@@ -47,13 +47,17 @@ public class GuardarCampania extends AppCompatActivity {
 
     public void guardarCampania(View view){
         if(!txtNombrePaciente.getText().toString().equals("") && !txtDonadoresNecesarios.getText().toString().equals("") && !txtTipoSangre.getText().toString().equals("") && !txtUbicacion.getText().toString().equals("") && !txtDescripcion.getText().toString().equals("")){
-            campania = new Campania(txtNombrePaciente.getText().toString(), Integer.parseInt(txtDonadoresNecesarios.getText().toString()), txtTipoSangre.getText().toString(), txtUbicacion.getText().toString(), txtDescripcion.getText().toString());
-            dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").setValue(campania);
-            paciente.setCampania(campania);
-            Intent intentCampaniasDisponibles =new Intent(GuardarCampania.this, GenerarCampania.class);
-            Toast.makeText(GuardarCampania.this, "Campaña creada correctamente", Toast.LENGTH_LONG).show();
-            intentCampaniasDisponibles.putExtra("pacienteGuardar", paciente);
-            startActivity(intentCampaniasDisponibles);
+            try{
+                campania = new Campania(txtNombrePaciente.getText().toString(), Integer.parseInt(txtDonadoresNecesarios.getText().toString()), txtTipoSangre.getText().toString(), txtUbicacion.getText().toString(), txtDescripcion.getText().toString());
+                dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").setValue(campania);
+                paciente.setCampania(campania);
+                Intent intentCampaniasDisponibles =new Intent(GuardarCampania.this, GenerarCampania.class);
+                Toast.makeText(GuardarCampania.this, "Campaña creada correctamente", Toast.LENGTH_LONG).show();
+                intentCampaniasDisponibles.putExtra("pacienteGuardar", paciente);
+                startActivity(intentCampaniasDisponibles);
+            }catch (Exception e){
+                Toast.makeText(GuardarCampania.this, "Error al crear camapaña", Toast.LENGTH_LONG).show();
+            }
         }else {
             Toast.makeText(GuardarCampania.this, "Por favor conteste todas las preguntas", Toast.LENGTH_LONG).show();
         }
