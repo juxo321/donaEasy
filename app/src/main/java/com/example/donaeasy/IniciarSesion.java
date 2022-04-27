@@ -129,7 +129,7 @@ public class IniciarSesion extends AppCompatActivity {
 
                         }else{
                             Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                            Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, CampaniasDisponibles.class);
+                            Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, RecuperarCampanias.class);
                             startActivity(intentCampaniasDisponibles);
                         }
 

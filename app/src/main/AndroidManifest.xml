@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
+            android:name=".RecuperarCampanias"
+            android:exported="false" />
+        <activity
             android:name=".ModificarCampania"
             android:exported="false" />
         <activity
@@ -20,9 +23,6 @@
             android:exported="false" />
         <activity
             android:name=".Test"
-            android:exported="false" />
-        <activity
-            android:name=".CampaniasDisponibles"
             android:exported="false" />
         <activity
             android:name=".DetallesCampania"
