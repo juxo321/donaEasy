@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +26,7 @@ public class RecuperarCampanias extends AppCompatActivity {
     RecyclerView recyclerCampanias;
     CampaniaAdaptador campaniasAdaptador;
     Campania campania;
+    Donador donador;
 
     private DatabaseReference dbDonaEasy;
 
@@ -34,7 +39,16 @@ public class RecuperarCampanias extends AppCompatActivity {
 
         inicializarElementos();
 
+        donador = (Donador) getIntent().getExtras().getSerializable("donador");
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
     }
 
     private void inicializarElementos() {
@@ -68,4 +82,12 @@ public class RecuperarCampanias extends AppCompatActivity {
             }
         });
     }
+
+    public void perfil(View view){
+        Intent intentPerfil =new Intent(RecuperarCampanias.this, Perfil.class);
+        intentPerfil.putExtra("donaodr", donador);
+        startActivity(intentPerfil);
+
+    }
+
 }

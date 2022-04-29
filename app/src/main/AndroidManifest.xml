@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
+            android:name=".ActualizarTest"
+            android:exported="false" />
+        <activity
             android:name=".RecuperarCampanias"
             android:exported="false" />
         <activity

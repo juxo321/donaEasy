@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActualizarTest">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:padding="20px"
+        android:paddingVertical="20px"
+        android:paddingLeft="20px"
+        android:paddingTop="20px"
+        android:paddingRight="20px"
+        android:paddingBottom="20px">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="1.¿Cuentas con una identificacion oficial?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta1OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta1OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="2.¿Has  estado embarazada o has amamantado en los ultimos 12 meses?(En caso de ser hombre selecciona no)" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta2OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta2OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="3.¿Tienes entre 18 y 65 años?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta3OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta3OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="4.¿Tienes sobrepeso u obesidad?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta4OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta4OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="5.¿Tienes un peso mayor a 50 kg?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta5OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta5OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="6.¿Padeces diabetes?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta6OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta6OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="7.¿Tienes tatuajes, te has sometido a endodoncias, procedimientos de acupuntura , alguna perforacion o sometido a alguna operacion en los ultimos 12 meses?" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta7OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta7OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.¿Has recibido vacunas el ultimo mes?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta8OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta8OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50px"
+            android:background="@color/azulPrimary" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.¿Has tenido gripe, tos, diarrea o infeccion dental en los ultimos 14 dias?" />
+
+        <RadioGroup
+            android:id="@+id/radioGrupoPregunta9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/RadioDonador"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioPregunta9OpcionSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionSI" />
+
+            <RadioButton
+                android:id="@+id/radioPregunta9OpcionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/opcionNo" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btnEnviarTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/rojoPrimary"
+            android:onClick="enviarTest"
+            android:text="Enviar" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
