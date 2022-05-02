@@ -96,7 +96,6 @@
                 android:layout_marginStart="200px"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/rojoPrimary"
-                android:onClick="iniciarSesion"
                 android:text="Compartir" />
 
             <Button

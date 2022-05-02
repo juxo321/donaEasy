@@ -68,6 +68,7 @@ public class CampaniaAdaptador extends  RecyclerView.Adapter<CampaniaAdaptador.V
             btnCompartirCampania = itemView.findViewById(R.id.btnCompartirCampaniaCard);
             btnDonarCampania = itemView.findViewById(R.id.btnDonarCampaniaCard);
         }
-
+        
     }
+
 }
