@@ -87,13 +87,13 @@ public class GenerarCampania extends AppCompatActivity {
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").removeValue();
-                            paciente = null;
                             txtNombre.setText("Nombre: ");
                             txtTipoSangre.setText("Tipo de sangre: ");
                             txtDonadoresNecesarios.setText("Donadores requeridos: ");
                             txtUbicacion.setText("Ubicación: ");
                             txtDescripcion.setText("Descripción");
                             btnCrearCampania.setEnabled(true);
+                            paciente.getCampania().setDonadoresNecesarios(-1);
                             Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -107,20 +107,25 @@ public class GenerarCampania extends AppCompatActivity {
     }
 
     public void verificarEstadoDeLaCampania(View view){
-        if(paciente != null){
-            AlertDialog alertDialog = new AlertDialog.Builder(GenerarCampania.this).create();
-            alertDialog.setTitle("Estado de la campaña");
-            alertDialog.setMessage("Donadores faltantes: "+ paciente.getCampania().getDonadoresNecesarios());
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
+        if(paciente.getCampania() != null){
+            if(paciente.getCampania().getDonadoresNecesarios() != -1){
+                AlertDialog alertDialog = new AlertDialog.Builder(GenerarCampania.this).create();
+                alertDialog.setTitle("Estado de la campaña");
+                alertDialog.setMessage("Donadores faltantes: "+ paciente.getCampania().getDonadoresNecesarios());
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }else {
+                Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
+            }
         }else {
             Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
         }
+
     }
 
 }

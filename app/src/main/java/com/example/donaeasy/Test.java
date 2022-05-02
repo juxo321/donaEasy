@@ -169,11 +169,15 @@ public class Test extends AppCompatActivity {
             || (!radioPregunta7OpcionSi.isChecked() && !radioPregunta7OpcionNo.isChecked() || (!radioPregunta8OpcionSi.isChecked() && !radioPregunta8OpcionNo.isChecked()) || (!radioPregunta9OpcionSi.isChecked() && !radioPregunta9OpcionNo.isChecked()))){
             Toast.makeText(Test.this, "Por favor conteste todas las preguntas", Toast.LENGTH_LONG).show();
         }else {
-            dbDonaEasy.child("Donador").child(id).child("respuestasTest").setValue(listaRespuestasTest);
-            dbDonaEasy.child("Donador").child(id).child("testCompleto").setValue(true);
-            Intent intentRecuperarCampanias =new Intent(Test.this, RecuperarCampanias.class);
-            intentRecuperarCampanias.putExtra("donador", usuarioLogueado);
-            startActivity(intentRecuperarCampanias);
+            try {
+                dbDonaEasy.child("Donador").child(id).child("respuestasTest").setValue(listaRespuestasTest);
+                dbDonaEasy.child("Donador").child(id).child("testCompleto").setValue(true);
+                Intent intentRecuperarCampanias =new Intent(Test.this, RecuperarCampanias.class);
+                intentRecuperarCampanias.putExtra("donador", usuarioLogueado);
+                startActivity(intentRecuperarCampanias);
+            }catch (Exception e){
+                Toast.makeText(Test.this, "Error al conectarse con la base de datos", Toast.LENGTH_SHORT).show();
+            }
         }
 
 

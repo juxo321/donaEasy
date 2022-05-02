@@ -89,6 +89,7 @@ public class IniciarSesion extends AppCompatActivity {
                                     donador.setContrasena(contrasena);
                                     donador.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     donador.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
+                                    donador.setRespuestasTest((ArrayList<Boolean>) usuarioBd.child("respuestasTest").getValue());
                                     donador.setId(usuarioBd.getKey());
                                     banderaUsuarioExiste = true;
                                     break;
@@ -98,7 +99,7 @@ public class IniciarSesion extends AppCompatActivity {
                                     paciente.setContrasena(contrasena);
                                     paciente.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     paciente.setId(usuarioBd.getKey());
-                                    paciente.setCampania((Campania) usuarioBd.child("campania").getValue());
+                                    paciente.setCampania((Campania) usuarioBd.child("campania").getValue(Campania.class));
                                     banderaUsuarioExiste = true;
                                     break;
                                 }
@@ -116,22 +117,36 @@ public class IniciarSesion extends AppCompatActivity {
 
                 if(banderaUsuarioExiste){
                     if(paciente != null){
-                        Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                        Intent intentGuardarCampania =new Intent(IniciarSesion.this, GenerarCampania.class);
-                        intentGuardarCampania.putExtra("paciente",paciente);
-                        startActivity(intentGuardarCampania);
+                        try{
+                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                            Intent intentGuardarCampania =new Intent(IniciarSesion.this, GenerarCampania.class);
+                            intentGuardarCampania.putExtra("paciente",paciente);
+                            startActivity(intentGuardarCampania);
+                        }catch(Exception e){
+                            Toast.makeText(IniciarSesion.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+                        }
+
                     }else {
                         if(!donador.getTestCompleto()){
-                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                            Intent intentTest =new Intent(IniciarSesion.this, Test.class);
-                            intentTest.putExtra("donador", donador);
-                            startActivity(intentTest);
+                            try {
+                                Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                                Intent intentTest =new Intent(IniciarSesion.this, Test.class);
+                                intentTest.putExtra("donador", donador);
+                                startActivity(intentTest);
+                            }catch (Exception e){
+                                Toast.makeText(IniciarSesion.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+                            }
 
                         }else{
-                            Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
-                            Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, RecuperarCampanias.class);
-                            intentCampaniasDisponibles.putExtra("donador", donador);
-                            startActivity(intentCampaniasDisponibles);
+                            try {
+                                Toast.makeText(IniciarSesion.this, "Iniciando sesión...", Toast.LENGTH_SHORT).show();
+                                Intent intentCampaniasDisponibles =new Intent(IniciarSesion.this, RecuperarCampanias.class);
+                                intentCampaniasDisponibles.putExtra("donador", donador);
+                                startActivity(intentCampaniasDisponibles);
+                            }catch (Exception e){
+                                Toast.makeText(IniciarSesion.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
 
                     }

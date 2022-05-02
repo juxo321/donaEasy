@@ -47,8 +47,8 @@ public class Registrarse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarse);
 
-        txtUsuario = findViewById(R.id.txtUsuario);
-        txtPassword = findViewById(R.id.txtPassword);
+        txtUsuario = findViewById(R.id.txtUsuarioRegistrarse);
+        txtPassword = findViewById(R.id.txtPasswordRegistrarse);
         radioGroup = (RadioGroup) findViewById(R.id.radioGrupo);
         radiobtnPaciente = findViewById(R.id.RadioPaciente);
         radiobtnDonador = findViewById(R.id.RadioDonador);
@@ -59,7 +59,7 @@ public class Registrarse extends AppCompatActivity {
     }
 
     public void Registrarse(View view){
-        if(txtUsuario.getText().toString().trim().equals("") && txtUsuario.getText().toString().trim().equals("")){
+        if(!txtUsuario.getText().toString().trim().equals("") && !txtPassword.getText().toString().trim().equals("")){
             String tipo = "";
             String usuario = txtUsuario.getText().toString();
             String contrasena = txtPassword.getText().toString();
@@ -71,6 +71,7 @@ public class Registrarse extends AppCompatActivity {
                 donador.setUsuario(usuario);
                 donador.setContrasena(contrasena);
                 donador.setTipo(tipo);
+
             }else if (radiobtnPaciente.isChecked()){
                 paciente = new Paciente(null);
                 tipo = radiobtnPaciente.getText().toString();
@@ -90,7 +91,6 @@ public class Registrarse extends AppCompatActivity {
                         Toast.makeText(this, "Error al agregar usuario", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-
                     try {
                         dbDonaEasy.child("Paciente").child(id).setValue(paciente);
                         Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show();

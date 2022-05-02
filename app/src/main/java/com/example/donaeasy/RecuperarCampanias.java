@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,39 +57,57 @@ public class RecuperarCampanias extends AppCompatActivity {
         recyclerCampanias = findViewById(R.id.recyclerViewCampanias);
         recyclerCampanias.setLayoutManager(new LinearLayoutManager(this));
 
-        List<Campania> listaCampanias = new ArrayList<>();
-        dbDonaEasy = FirebaseDatabase.getInstance().getReference();
-        Query query = dbDonaEasy.child("DonaEasy").child("Paciente");
+        try {
+            List<Campania> listaCampanias = new ArrayList<>();
+            dbDonaEasy = FirebaseDatabase.getInstance().getReference();
+            Query query = dbDonaEasy.child("DonaEasy").child("Paciente");
 
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for (DataSnapshot paciente: snapshot.getChildren()) {
-                        if(paciente.child("campania").getValue(Campania.class) != null){
-                            campania = (Campania) paciente.child("campania").getValue(Campania.class);
-                            listaCampanias.add(campania);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        for (DataSnapshot paciente: snapshot.getChildren()) {
+                            if(paciente.child("campania").getValue(Campania.class) != null){
+                                campania = (Campania) paciente.child("campania").getValue(Campania.class);
+                                listaCampanias.add(campania);
+                            }
                         }
                     }
+
+                    campaniasAdaptador = new CampaniaAdaptador(listaCampanias, RecuperarCampanias.this);
+                    recyclerCampanias.setAdapter(campaniasAdaptador);
+
+
                 }
 
-                campaniasAdaptador = new CampaniaAdaptador(listaCampanias, RecuperarCampanias.this);
-                recyclerCampanias.setAdapter(campaniasAdaptador);
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
+                }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        }catch (Exception e){
+            Toast.makeText(RecuperarCampanias.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void perfil(View view){
-        Intent intentPerfil =new Intent(RecuperarCampanias.this, Perfil.class);
-        intentPerfil.putExtra("donaodr", donador);
-        startActivity(intentPerfil);
 
+    public boolean perfil(MenuItem item){
+        Intent intentPerfil =new Intent(RecuperarCampanias.this, MiPerfil.class);
+        intentPerfil.putExtra("donador", donador);
+        intentPerfil.putExtra("numero", 1);
+        startActivity(intentPerfil);
+        return true;
+    }
+
+    public void compartirCampania(View view){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/DonaEasy?hl=es_MX&gl=US.");
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 
 }

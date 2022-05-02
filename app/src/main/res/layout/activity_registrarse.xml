@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="Registrarse"
     tools:context=".Registrarse">
 
     <ImageView
@@ -17,7 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.155"
         app:srcCompat="@drawable/donaeasylogo" />
-
 
 
     <TextView
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.437" />
 
     <EditText
-        android:id="@+id/txtUsuario"
+        android:id="@+id/txtUsuarioRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.572" />
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/txtPasswordRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

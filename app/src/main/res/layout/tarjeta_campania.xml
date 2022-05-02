@@ -96,6 +96,7 @@
                 android:layout_marginStart="200px"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/rojoPrimary"
+                android:onClick="compartirCampania"
                 android:text="Compartir" />
 
             <Button

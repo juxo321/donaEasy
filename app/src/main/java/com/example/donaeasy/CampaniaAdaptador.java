@@ -15,8 +15,10 @@ import java.util.List;
 
 public class CampaniaAdaptador extends  RecyclerView.Adapter<CampaniaAdaptador.ViewHolder> {
 
+
     private List<Campania> listaCampanias;
     private Context contexto;
+
 
     public CampaniaAdaptador(List<Campania> listaCampanias, Context contexto) {
         this.listaCampanias = listaCampanias;
