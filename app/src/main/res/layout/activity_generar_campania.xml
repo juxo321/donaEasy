@@ -15,22 +15,19 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/l"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="293dp"
-        android:layout_marginBottom="336dp"
         android:accessibilityLiveRegion="none"
         android:fillViewport="false"
         android:padding="50px"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="120dp">
 
         <FrameLayout
             android:id="@+id/linearLayoutGenerarCampania"
@@ -58,8 +55,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
-                android:layout_marginStart="100px"
-                android:layout_marginTop="50px"
                 android:background="@drawable/border"
                 android:orientation="vertical"
                 android:padding="10px"
@@ -181,17 +176,16 @@
         android:id="@+id/verEstadoCampania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:backgroundTint="@color/rojoPrimary"
         android:onClick="verificarEstadoDeLaCampania"
         android:text="Ver estado de la campaña"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrearCampania"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <Button
         android:id="@+id/btnCrearCampania"

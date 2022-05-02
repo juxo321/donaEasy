@@ -1,8 +1,6 @@
 package com.example.donaeasy;
 
-import java.io.Serializable;
-
-public class Campania implements Serializable {
+public class Campania {
     private String nombrePaciente;
     private int donadoresNecesarios;
     private String tipoSangre;
