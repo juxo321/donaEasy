@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +31,7 @@ public class RecuperarCampanias extends AppCompatActivity {
     CampaniaAdaptador campaniasAdaptador;
     Campania campania;
     Donador donador;
+    List<Campania> listaCampanias;
 
     private DatabaseReference dbDonaEasy;
 
@@ -58,7 +61,7 @@ public class RecuperarCampanias extends AppCompatActivity {
         recyclerCampanias.setLayoutManager(new LinearLayoutManager(this));
 
         try {
-            List<Campania> listaCampanias = new ArrayList<>();
+            listaCampanias = new ArrayList<>();
             dbDonaEasy = FirebaseDatabase.getInstance().getReference();
             Query query = dbDonaEasy.child("DonaEasy").child("Paciente");
 
@@ -69,12 +72,14 @@ public class RecuperarCampanias extends AppCompatActivity {
                         for (DataSnapshot paciente: snapshot.getChildren()) {
                             if(paciente.child("campania").getValue(Campania.class) != null){
                                 campania = (Campania) paciente.child("campania").getValue(Campania.class);
-                                listaCampanias.add(campania);
+                                if(campania.getDonadoresNecesarios()>0){
+                                    listaCampanias.add(campania);
+                                }
                             }
                         }
                     }
 
-                    campaniasAdaptador = new CampaniaAdaptador(listaCampanias, RecuperarCampanias.this);
+                    campaniasAdaptador = new CampaniaAdaptador(listaCampanias, RecuperarCampanias.this, donador);
                     recyclerCampanias.setAdapter(campaniasAdaptador);
 
 
@@ -109,5 +114,6 @@ public class RecuperarCampanias extends AppCompatActivity {
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
     }
+
 
 }

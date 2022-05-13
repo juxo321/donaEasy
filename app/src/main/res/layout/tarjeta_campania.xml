@@ -106,7 +106,7 @@
                 android:layout_marginStart="150px"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="@color/rojoPrimary"
-                android:onClick="iniciarSesion"
+                android:onClick="donar"
                 android:text="Donar" />
 
         </LinearLayout>

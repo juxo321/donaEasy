@@ -70,6 +70,7 @@ public class Registrarse extends AppCompatActivity {
                 tipo = radiobtnDonador.getText().toString();
                 donador.setUsuario(usuario);
                 donador.setContrasena(contrasena);
+                donador.setCita(null);
                 donador.setTipo(tipo);
 
             }else if (radiobtnPaciente.isChecked()){

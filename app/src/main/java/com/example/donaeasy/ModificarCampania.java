@@ -53,7 +53,8 @@ public class ModificarCampania extends AppCompatActivity {
     public void guardarCampania(View view){
         if(!txtNombrePaciente.getText().toString().equals("") && !txtDonadoresNecesarios.getText().toString().equals("") && !txtTipoSangre.getText().toString().equals("") && !txtUbicacion.getText().toString().equals("") && !txtDescripcion.getText().toString().equals("")){
             try{
-                campania = new Campania(txtNombrePaciente.getText().toString(), Integer.parseInt(txtDonadoresNecesarios.getText().toString()), txtTipoSangre.getText().toString(), txtUbicacion.getText().toString(), txtDescripcion.getText().toString());
+                String id = dbDonaEasy.getKey();
+                campania = new Campania(id ,txtNombrePaciente.getText().toString(), Integer.parseInt(txtDonadoresNecesarios.getText().toString()), txtTipoSangre.getText().toString(), txtUbicacion.getText().toString(), txtDescripcion.getText().toString());
                 dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").setValue(campania);
                 paciente.setCampania(campania);
                 Intent intentCampaniasDisponibles =new Intent(ModificarCampania.this, GenerarCampania.class);

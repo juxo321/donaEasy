@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
+            android:name=".AgendarCita"
+            android:exported="false" />
+        <activity
             android:name=".MiPerfil"
             android:exported="false" />
         <activity
@@ -52,10 +55,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5463728048955304~3326976078"/>
+            android:value="ca-app-pub-5463728048955304~3326976078" />
     </application>
 
 </manifest>

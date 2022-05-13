@@ -89,6 +89,7 @@ public class IniciarSesion extends AppCompatActivity {
                                     donador.setContrasena(contrasena);
                                     donador.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     donador.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
+                                    donador.setCita((Cita) usuarioBd.child("cita").getValue(Cita.class));
                                     donador.setRespuestasTest((ArrayList<Boolean>) usuarioBd.child("respuestasTest").getValue());
                                     donador.setId(usuarioBd.getKey());
                                     banderaUsuarioExiste = true;

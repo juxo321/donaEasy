@@ -3,13 +3,15 @@ package com.example.donaeasy;
 import java.io.Serializable;
 
 public class Campania implements Serializable {
+    private String idPaciente;
     private String nombrePaciente;
     private int donadoresNecesarios;
     private String tipoSangre;
     private String ubicacion;
     private String descripcion;
 
-    public Campania(String nombrePaciente, int donadoresNecesarios, String tipoSangre, String ubicacion, String descripcion) {
+    public Campania(String idPaciente, String nombrePaciente, int donadoresNecesarios, String tipoSangre, String ubicacion, String descripcion) {
+        this.idPaciente = idPaciente;
         this.nombrePaciente = nombrePaciente;
         this.donadoresNecesarios = donadoresNecesarios;
         this.tipoSangre = tipoSangre;
@@ -19,6 +21,14 @@ public class Campania implements Serializable {
 
 
     public Campania() {
+    }
+
+    public String getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(String idPaciente) {
+        this.idPaciente = idPaciente;
     }
 
     public String getNombrePaciente() {
