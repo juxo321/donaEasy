@@ -49,6 +49,7 @@
         android:layout_marginStart="99dp"
         android:layout_marginEnd="101dp"
         android:backgroundTint="#001C1C1C"
+        android:onClick="cerrarSesion"
         android:text="Cerrar Sesión"
         android:textColor="#000000"
         app:icon="@drawable/cerrar_sesion"
@@ -57,9 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEliminarCita"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancelarCita"
         app:rippleColor="@color/black" />
-
 
 
     <Button
@@ -70,8 +70,9 @@
         android:layout_marginEnd="115dp"
         android:backgroundTint="@color/rojoPrimary"
         android:fontFamily="@font/roboto_medium"
+        android:onClick="reeagendarCita"
         android:text="Re-Agendar Cita"
-        app:layout_constraintBottom_toTopOf="@+id/btnEliminarCita"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelarCita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,17 +92,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutstatus" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEstatus" />
 
     <Button
-        android:id="@+id/btnEliminarCita"
+        android:id="@+id/btnCancelarCita"
         android:layout_width="180dp"
         android:layout_height="58dp"
         android:layout_marginStart="116dp"
         android:layout_marginEnd="115dp"
         android:backgroundTint="@color/rojoPrimary"
         android:fontFamily="@font/roboto_medium"
-        android:text="Eliminar Cita"
+        android:onClick="cancelarCita"
+        android:text="Cancelar Cita"
         app:layout_constraintBottom_toTopOf="@+id/btnCerrarSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -137,8 +139,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
 
-    <FrameLayout
-        android:id="@+id/layoutstatus"
+    <EditText
+        android:id="@+id/txtEstatus"
         android:layout_width="355dp"
         android:layout_height="74dp"
         android:addStatesFromChildren="false"
@@ -146,8 +148,11 @@
         android:background="#4CAF50"
         android:clickable="true"
         android:contentDescription="@android:string/status_bar_notification_info_overflow"
+        android:fontFamily="@font/roboto_bold"
         android:persistentDrawingCache="animation"
         android:pointerIcon="zoom_in"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"

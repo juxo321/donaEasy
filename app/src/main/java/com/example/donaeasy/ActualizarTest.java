@@ -257,6 +257,7 @@ public class ActualizarTest extends AppCompatActivity {
             try {
                 donador.setRespuestasTest(listaRespuestasTest);
                 dbDonaEasy.child("Donador").child(donador.getId()).child("respuestasTest").setValue(listaRespuestasTest);
+                donador.setRespuestasTest(listaRespuestasTest);
                 Intent intentMiPerfil = new Intent(ActualizarTest.this, MiPerfil.class);
                 intentMiPerfil.putExtra("donadorTest", donador);
                 Toast.makeText(ActualizarTest.this, "Test actualizado correctamente", Toast.LENGTH_LONG).show();

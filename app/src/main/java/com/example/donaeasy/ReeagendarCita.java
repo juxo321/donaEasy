@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.Spinner;
@@ -20,7 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AgendarCita extends AppCompatActivity {
+public class ReeagendarCita extends AppCompatActivity {
 
     private Spinner spinnerHora;
     private CalendarView calendario;
@@ -28,30 +27,37 @@ public class AgendarCita extends AppCompatActivity {
     private String txtHora;
     private String txtFecha;
     private static final String[] paths = {"7:00 am", "8:00 am", "9:00 am", "10:00 am"};
-    private Campania campaniaDonar;
     private Donador donador;
 
     private DatabaseReference dbDonaEasy;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agendar_cita);
+        setContentView(R.layout.activity_reeagendar_cita);
 
         spinnerHora = (Spinner)findViewById(R.id.spinnerHora);
         calendario = (CalendarView) findViewById(R.id.calendario);
         txtUbicacion = (TextView) findViewById(R.id.txtUbicacion);
-        campaniaDonar = (Campania) getIntent().getExtras().getSerializable("campaniaDonar");
         donador = (Donador) getIntent().getExtras().get("donador");
-        txtUbicacion.append(campaniaDonar.getUbicacion());
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AgendarCita.this, android.R.layout.simple_spinner_item,paths);
+        txtUbicacion.append(donador.getCita().getCampaniaCita().getUbicacion());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ReeagendarCita.this, android.R.layout.simple_spinner_item,paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerHora.setAdapter(adapter);
 
         dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
         calendario.setMinDate(System.currentTimeMillis() +24*60*60*1000);
+        try {
+            calendario.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(donador.getCita().getFecha()).getTime(), true, true);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (int i=0;i<4;i++) {
+            if(paths[i].equals(donador.getCita().getHora())){
+                spinnerHora.setSelection(i);
+            }
+        }
         txtHora = spinnerHora.getSelectedItem().toString();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         txtFecha = sdf.format(new Date(calendario.getDate()));
@@ -75,32 +81,27 @@ public class AgendarCita extends AppCompatActivity {
 
     }
 
-    public void Donar(View view){
+    public void  ReeagendarCita(View view){
         txtHora = spinnerHora.getSelectedItem().toString();
 
         if(txtHora.trim().equals("")){
-            Toast.makeText(AgendarCita.this, "Por favor seleccione una hora", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReeagendarCita.this, "Por favor seleccione una hora", Toast.LENGTH_SHORT).show();
         }else{
             if(txtFecha.trim().equals("")){
-                Toast.makeText(AgendarCita.this, "Por favor seleccione una fecha", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReeagendarCita.this, "Por favor seleccione una fecha", Toast.LENGTH_SHORT).show();
             }else {
                 try {
-                    Cita cita = new Cita(txtFecha,txtHora, campaniaDonar);
-                    cita.getCampaniaCita().setDonadoresNecesarios(cita.getCampaniaCita().getDonadoresNecesarios()-1);
+                    Cita cita = new Cita(txtFecha,txtHora, donador.getCita().getCampaniaCita());
                     dbDonaEasy.child("Donador").child(donador.getId()).child("cita").setValue(cita);
-                    dbDonaEasy.child("Paciente").child(campaniaDonar.getIdPaciente()).child("campania").setValue(campaniaDonar);
-                    Toast.makeText(AgendarCita.this, "Cita creada correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReeagendarCita.this, "Cita actualizada correctamente", Toast.LENGTH_SHORT).show();
                     donador.setCita(cita);
-                    Intent intentCampaniasDisponibles =new Intent(AgendarCita.this, RecuperarCampanias.class);
+                    Intent intentCampaniasDisponibles =new Intent(ReeagendarCita.this, RecuperarCampanias.class);
                     intentCampaniasDisponibles.putExtra("donador", donador);
                     startActivity(intentCampaniasDisponibles);
                 }catch (Exception e){
-                    Toast.makeText(AgendarCita.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReeagendarCita.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
                 }
             }
         }
-
     }
-
-
 }

@@ -172,6 +172,8 @@ public class Test extends AppCompatActivity {
             try {
                 dbDonaEasy.child("Donador").child(id).child("respuestasTest").setValue(listaRespuestasTest);
                 dbDonaEasy.child("Donador").child(id).child("testCompleto").setValue(true);
+                usuarioLogueado.setRespuestasTest(listaRespuestasTest);
+                usuarioLogueado.setTestCompleto(true);
                 Intent intentRecuperarCampanias =new Intent(Test.this, RecuperarCampanias.class);
                 intentRecuperarCampanias.putExtra("donador", usuarioLogueado);
                 startActivity(intentRecuperarCampanias);

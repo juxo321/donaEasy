@@ -3,10 +3,16 @@ package com.example.donaeasy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +29,9 @@ public class MiPerfil extends AppCompatActivity {
     Donador donador;
 
     TextView txtNombreDonador;
+    Button btnCancelarCita;
+    Button btnReeagendarCita;
+    EditText txtEstatus;
 
     DatabaseReference dbDonaEasy;
 
@@ -42,8 +51,28 @@ public class MiPerfil extends AppCompatActivity {
         }
 
         txtNombreDonador = findViewById(R.id.txtNombreDonador);
+        btnCancelarCita = findViewById(R.id.btnCancelarCita);
+        btnReeagendarCita = findViewById(R.id.btnReAgendarCita);
+        txtEstatus = findViewById(R.id.txtEstatus);
+
 
         txtNombreDonador.append(" "+donador.getUsuario());
+
+        if(donador.getCita()==null){
+            btnCancelarCita.setEnabled(false);
+            btnReeagendarCita.setEnabled(false);
+        }
+
+        for (boolean respuesta: donador.getRespuestasTest()) {
+            if(respuesta == false){
+                txtEstatus.setText("Inactivo");
+                txtEstatus.setBackgroundColor(Color.RED);
+                break;
+            }
+            txtEstatus.setText("Activo");
+            txtEstatus.setBackgroundColor(Color.GREEN);
+        }
+
 
 
     }
@@ -52,6 +81,43 @@ public class MiPerfil extends AppCompatActivity {
         Intent intentPerfil =new Intent(MiPerfil.this, ActualizarTest.class);
         intentPerfil.putExtra("donador", donador);
         startActivity(intentPerfil);
+    }
+
+    public void cancelarCita(View view){
+        try {
+            new AlertDialog.Builder(this)
+                    .setTitle("Cancelar cita")
+                    .setMessage("¿Desea cancelar la cita?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dbDonaEasy.child("Donador").child(donador.getId()).child("cita").removeValue();
+                            donador.getCita().getCampaniaCita().setDonadoresNecesarios(donador.getCita().getCampaniaCita().getDonadoresNecesarios()+1);
+                            dbDonaEasy.child("Paciente").child(donador.getCita().getCampaniaCita().getIdPaciente()).child("campania").setValue(donador.getCita().getCampaniaCita());
+                            donador.setCita(null);
+                            Toast.makeText(MiPerfil.this, "Cita cancelada correctamente", Toast.LENGTH_SHORT).show();
+                            Intent intentRecuperarCampanias =new Intent(MiPerfil.this, RecuperarCampanias.class);
+                            intentRecuperarCampanias.putExtra("donador", donador);
+                            startActivity(intentRecuperarCampanias);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_delete)
+                    .show();
+        }catch(Exception e){
+            Toast.makeText(MiPerfil.this, "Error al cancelar la cita", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void reeagendarCita(View view){
+        Intent intentReeagendarCita =new Intent(MiPerfil.this, ReeagendarCita.class);
+        intentReeagendarCita.putExtra("donador", donador);
+        startActivity(intentReeagendarCita);
+    }
+
+    public void cerrarSesion(View view){
+        Intent intentIniciarSesion =new Intent(MiPerfil.this, IniciarSesion.class);
+        startActivity(intentIniciarSesion);
+        Toast.makeText(MiPerfil.this, "Hasta pronto...", Toast.LENGTH_SHORT).show();
     }
 
 
