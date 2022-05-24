@@ -81,6 +81,7 @@ public class MiPerfil extends AppCompatActivity {
         Intent intentPerfil =new Intent(MiPerfil.this, ActualizarTest.class);
         intentPerfil.putExtra("donador", donador);
         startActivity(intentPerfil);
+        finish();
     }
 
     public void cancelarCita(View view){
@@ -98,6 +99,7 @@ public class MiPerfil extends AppCompatActivity {
                             Intent intentRecuperarCampanias =new Intent(MiPerfil.this, RecuperarCampanias.class);
                             intentRecuperarCampanias.putExtra("donador", donador);
                             startActivity(intentRecuperarCampanias);
+                            finish();
                         }
                     })
                     .setNegativeButton(android.R.string.no, null)
@@ -112,12 +114,20 @@ public class MiPerfil extends AppCompatActivity {
         Intent intentReeagendarCita =new Intent(MiPerfil.this, ReeagendarCita.class);
         intentReeagendarCita.putExtra("donador", donador);
         startActivity(intentReeagendarCita);
+        finish();
     }
 
     public void cerrarSesion(View view){
         Intent intentIniciarSesion =new Intent(MiPerfil.this, IniciarSesion.class);
         startActivity(intentIniciarSesion);
+        finish();
         Toast.makeText(MiPerfil.this, "Hasta pronto...", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
 

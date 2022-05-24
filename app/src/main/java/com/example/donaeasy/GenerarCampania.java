@@ -69,12 +69,14 @@ public class GenerarCampania extends AppCompatActivity {
         Intent intentGuardarCampania =new Intent(GenerarCampania.this, GuardarCampania.class);
         intentGuardarCampania.putExtra("paciente", paciente);
         startActivity(intentGuardarCampania);
+        finish();
     }
 
     public void modificarCampania(View view){
         Intent intentModificarCampania =new Intent(GenerarCampania.this, ModificarCampania.class);
         intentModificarCampania.putExtra("pacienteModificar", paciente);
         startActivity(intentModificarCampania);
+        finish();
     }
 
 

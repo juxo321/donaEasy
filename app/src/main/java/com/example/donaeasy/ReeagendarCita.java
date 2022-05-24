@@ -98,6 +98,7 @@ public class ReeagendarCita extends AppCompatActivity {
                     Intent intentCampaniasDisponibles =new Intent(ReeagendarCita.this, RecuperarCampanias.class);
                     intentCampaniasDisponibles.putExtra("donador", donador);
                     startActivity(intentCampaniasDisponibles);
+                    finish();
                 }catch (Exception e){
                     Toast.makeText(ReeagendarCita.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
                 }

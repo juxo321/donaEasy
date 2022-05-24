@@ -61,6 +61,7 @@ public class ModificarCampania extends AppCompatActivity {
                 Toast.makeText(ModificarCampania.this, "Campaña modificada correctamente", Toast.LENGTH_LONG).show();
                 intentCampaniasDisponibles.putExtra("pacienteGuardar", paciente);
                 startActivity(intentCampaniasDisponibles);
+                finish();
             }catch (Exception e){
                 Toast.makeText(ModificarCampania.this, "Error al modificar campaña", Toast.LENGTH_SHORT).show();
             }

@@ -55,6 +55,7 @@ public class GuardarCampania extends AppCompatActivity {
                 Toast.makeText(GuardarCampania.this, "Campaña creada correctamente", Toast.LENGTH_LONG).show();
                 intentCampaniasDisponibles.putExtra("pacienteGuardar", paciente);
                 startActivity(intentCampaniasDisponibles);
+                finish();
             }catch (Exception e){
                 Toast.makeText(GuardarCampania.this, "Error al crear camapaña", Toast.LENGTH_LONG).show();
             }

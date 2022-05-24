@@ -1,5 +1,6 @@
 package com.example.donaeasy;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class  CampaniaAdaptador extends  RecyclerView.Adapter<CampaniaAdaptador.
                      intentAgendarCita.putExtra("campaniaDonar", campaniaDonar);
                      intentAgendarCita.putExtra("donador", donador);
                      contexto.startActivity(intentAgendarCita);
+                     ((Activity)contexto).finish();
                  }else {
                      Toast.makeText(contexto, "Solo puedes participar en una campaña", Toast.LENGTH_SHORT).show();
                  }

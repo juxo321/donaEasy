@@ -104,6 +104,7 @@ public class Registrarse extends AppCompatActivity {
             }
             Intent intentIniciarSesion =new Intent(Registrarse.this, IniciarSesion.class);
             startActivity(intentIniciarSesion);
+            finish();
         }else{
             Toast.makeText(this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT).show();
         }

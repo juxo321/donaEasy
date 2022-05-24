@@ -262,6 +262,7 @@ public class ActualizarTest extends AppCompatActivity {
                 intentMiPerfil.putExtra("donadorTest", donador);
                 Toast.makeText(ActualizarTest.this, "Test actualizado correctamente", Toast.LENGTH_LONG).show();
                 startActivity(intentMiPerfil);
+                finish();
             }catch (Exception e){
                 Toast.makeText(ActualizarTest.this, "Error al guardar cambios", Toast.LENGTH_SHORT).show();
             }

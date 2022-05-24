@@ -94,6 +94,7 @@ public class AgendarCita extends AppCompatActivity {
                     Intent intentCampaniasDisponibles =new Intent(AgendarCita.this, RecuperarCampanias.class);
                     intentCampaniasDisponibles.putExtra("donador", donador);
                     startActivity(intentCampaniasDisponibles);
+                    finish();
                 }catch (Exception e){
                     Toast.makeText(AgendarCita.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
                 }
