@@ -25,7 +25,7 @@
         android:layout_width="256dp"
         android:layout_height="38dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/regisrate_para_comenzar"
+        android:text="@string/registarte_para_comenzar"
         android:textColor="#C1292E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.435" />
 
     <EditText
         android:id="@+id/txtUsuarioRegistrarse"

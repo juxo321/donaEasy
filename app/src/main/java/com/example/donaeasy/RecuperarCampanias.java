@@ -65,6 +65,7 @@ public class RecuperarCampanias extends AppCompatActivity {
             dbDonaEasy = FirebaseDatabase.getInstance().getReference();
             Query query = dbDonaEasy.child("DonaEasy").child("Paciente");
 
+
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
