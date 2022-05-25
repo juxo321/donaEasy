@@ -96,7 +96,6 @@ public class MiPerfil extends AppCompatActivity {
         Intent intentPerfil =new Intent(MiPerfil.this, ActualizarTest.class);
         intentPerfil.putExtra("donador", donador);
         startActivity(intentPerfil);
-        finish();
     }
 
     public void cancelarCita(View view){
@@ -129,7 +128,6 @@ public class MiPerfil extends AppCompatActivity {
         Intent intentReeagendarCita =new Intent(MiPerfil.this, ReeagendarCita.class);
         intentReeagendarCita.putExtra("donador", donador);
         startActivity(intentReeagendarCita);
-        finish();
     }
 
     public void cerrarSesion(View view){

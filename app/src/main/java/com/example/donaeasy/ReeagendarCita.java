@@ -100,7 +100,7 @@ public class ReeagendarCita extends AppCompatActivity {
                     startActivity(intentCampaniasDisponibles);
                     finish();
                 }catch (Exception e){
-                    Toast.makeText(ReeagendarCita.this, "Fallo en la conexion con la base de datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReeagendarCita.this, "Error al re-agendar cita", Toast.LENGTH_SHORT).show();
                 }
             }
         }
