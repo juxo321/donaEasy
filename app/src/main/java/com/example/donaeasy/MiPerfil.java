@@ -8,6 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,18 +66,30 @@ public class MiPerfil extends AppCompatActivity {
             btnReeagendarCita.setEnabled(false);
         }
 
-        for (boolean respuesta: donador.getRespuestasTest()) {
-            if(respuesta == false){
-                txtEstatus.setText("Inactivo");
-                txtEstatus.setBackgroundColor(Color.RED);
-                break;
-            }
+        if(donador.getEstatus().equals("Activo")){
             txtEstatus.setText("Activo");
             txtEstatus.setBackgroundColor(Color.GREEN);
+        }else {
+            txtEstatus.setText("Inactivo");
+            txtEstatus.setBackgroundColor(Color.RED);
         }
 
+        if(donador.getCita() != null && donador.getEstatus().equals("Inactivo")){
+            dbDonaEasy.child("Donador").child(donador.getId()).child("cita").removeValue();
+            donador.getCita().getCampaniaCita().setDonadoresNecesarios(donador.getCita().getCampaniaCita().getDonadoresNecesarios()+1);
+            dbDonaEasy.child("Paciente").child(donador.getCita().getCampaniaCita().getIdPaciente()).child("campania").setValue(donador.getCita().getCampaniaCita());
+            donador.setCita(null);
+            Toast.makeText(MiPerfil.this, "Su cita ha sido cancelada debido a que no cumple con los requisitos para donar", Toast.LENGTH_SHORT).show();
+            btnCancelarCita.setEnabled(false);
+            btnReeagendarCita.setEnabled(false);
+        }
+    }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu2, menu);
+        return true;
     }
 
     public void modificarTest(View view){
@@ -124,11 +139,23 @@ public class MiPerfil extends AppCompatActivity {
         Toast.makeText(MiPerfil.this, "Hasta pronto...", Toast.LENGTH_SHORT).show();
     }
 
+    public boolean verCampanias(MenuItem item){
+        Intent intentCampanias =new Intent(MiPerfil.this, RecuperarCampanias.class);
+        intentCampanias.putExtra("donador", donador);
+        startActivity(intentCampanias);
+        finish();
+        return true;
+    }
+
+
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        this.finish();
+        //super.onBackPressed();
+        //this.finish();
     }
+
+
 
 
 }

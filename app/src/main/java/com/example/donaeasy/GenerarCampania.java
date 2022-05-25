@@ -22,6 +22,8 @@ public class GenerarCampania extends AppCompatActivity {
 
 
     Button btnCrearCampania ;
+    Button btnEliminarCampania;
+    Button btnModificarCampania;
     TextView txtNombre;
     TextView txtTipoSangre;
     TextView txtDonadoresNecesarios;
@@ -37,6 +39,8 @@ public class GenerarCampania extends AppCompatActivity {
         setContentView(R.layout.activity_generar_campania);
 
         btnCrearCampania = findViewById(R.id.btnCrearCampania);
+        btnEliminarCampania = findViewById(R.id.EliminarCampania);
+        btnModificarCampania = findViewById(R.id.ModificarCampania);
 
         txtNombre = findViewById(R.id.txtNombre);
         txtTipoSangre = findViewById(R.id.txtTipoSangre);
@@ -61,6 +65,11 @@ public class GenerarCampania extends AppCompatActivity {
             txtDonadoresNecesarios.append(String.valueOf(paciente.getCampania().getDonadoresNecesarios()));
             txtUbicacion.append(paciente.getCampania().getUbicacion());
             txtDescripcion.append(paciente.getCampania().getDescripcion());
+            btnEliminarCampania.setEnabled(true);
+            btnModificarCampania.setEnabled(true);
+        }else {
+            btnEliminarCampania.setEnabled(false);
+            btnModificarCampania.setEnabled(false);
         }
 
     }
@@ -69,14 +78,12 @@ public class GenerarCampania extends AppCompatActivity {
         Intent intentGuardarCampania =new Intent(GenerarCampania.this, GuardarCampania.class);
         intentGuardarCampania.putExtra("paciente", paciente);
         startActivity(intentGuardarCampania);
-        finish();
     }
 
     public void modificarCampania(View view){
         Intent intentModificarCampania =new Intent(GenerarCampania.this, ModificarCampania.class);
         intentModificarCampania.putExtra("pacienteModificar", paciente);
         startActivity(intentModificarCampania);
-        finish();
     }
 
 
@@ -95,6 +102,8 @@ public class GenerarCampania extends AppCompatActivity {
                             txtUbicacion.setText("Ubicación: ");
                             txtDescripcion.setText("Descripción");
                             btnCrearCampania.setEnabled(true);
+                            btnEliminarCampania.setEnabled(false);
+                            btnModificarCampania.setEnabled(false);
                             paciente.getCampania().setDonadoresNecesarios(-1);
                             Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
                         }
@@ -128,6 +137,19 @@ public class GenerarCampania extends AppCompatActivity {
             Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        //this.finish();
+    }
+
+    public void cerrarSesion(View view){
+        Intent intentIniciarSesion =new Intent(GenerarCampania.this, IniciarSesion.class);
+        startActivity(intentIniciarSesion);
+        finish();
+        Toast.makeText(GenerarCampania.this, "Hasta pronto...", Toast.LENGTH_SHORT).show();
     }
 
 }

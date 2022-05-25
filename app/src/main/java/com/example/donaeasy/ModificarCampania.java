@@ -43,6 +43,8 @@ public class ModificarCampania extends AppCompatActivity {
         paciente = (Paciente) getIntent().getExtras().getSerializable("pacienteModificar");
         dbDonaEasy = FirebaseDatabase.getInstance().getReference("DonaEasy");
 
+
+
         txtNombrePaciente.append(paciente.getCampania().getNombrePaciente());
         txtTipoSangre.append(paciente.getCampania().getTipoSangre());
         txtDonadoresNecesarios.append(String.valueOf(paciente.getCampania().getDonadoresNecesarios()));

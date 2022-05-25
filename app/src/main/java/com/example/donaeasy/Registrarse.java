@@ -71,6 +71,7 @@ public class Registrarse extends AppCompatActivity {
                 donador.setUsuario(usuario);
                 donador.setContrasena(contrasena);
                 donador.setCita(null);
+                donador.setEstatus(null);
                 donador.setTipo(tipo);
 
             }else if (radiobtnPaciente.isChecked()){

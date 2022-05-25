@@ -47,6 +47,7 @@ public class RecuperarCampanias extends AppCompatActivity {
         donador = (Donador) getIntent().getExtras().getSerializable("donador");
 
 
+
     }
 
     @Override
@@ -114,6 +115,12 @@ public class RecuperarCampanias extends AppCompatActivity {
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        //this.finish();
     }
 
 

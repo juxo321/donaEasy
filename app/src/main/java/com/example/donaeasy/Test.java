@@ -58,6 +58,8 @@ public class Test extends AppCompatActivity {
     RadioButton radioPregunta9OpcionSi;
     RadioButton radioPregunta9OpcionNo;
 
+    String estatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +106,8 @@ public class Test extends AppCompatActivity {
         radioGrupoPregunta9 = (RadioGroup) findViewById(R.id.radioGrupoPregunta9);
         radioPregunta9OpcionSi = findViewById(R.id.radioPregunta9OpcionSi);
         radioPregunta9OpcionNo = findViewById(R.id.radioPregunta9OpcionNo);
+
+        estatus = "Activo";
     }
 
     public void enviarTest(View view){
@@ -164,6 +168,13 @@ public class Test extends AppCompatActivity {
             listaRespuestasTest.add(false);
         }
 
+        for (boolean respuesta: listaRespuestasTest) {
+            if (!respuesta) {
+                estatus = "Inactivo";
+                break;
+            }
+        }
+
         if((!radioPregunta1OpcionSi.isChecked() && !radioPregunta1OpcionNo.isChecked()) || (!radioPregunta2OpcionSi.isChecked() && !radioPregunta2OpcionNo.isChecked()) || (!radioPregunta3OpcionSi.isChecked() && !radioPregunta3OpcionNo.isChecked())
                 || (!radioPregunta4OpcionSi.isChecked() && !radioPregunta4OpcionNo.isChecked()) || (!radioPregunta5OpcionSi.isChecked() && !radioPregunta5OpcionNo.isChecked()) || (!radioPregunta6OpcionSi.isChecked() && !radioPregunta6OpcionNo.isChecked())
             || (!radioPregunta7OpcionSi.isChecked() && !radioPregunta7OpcionNo.isChecked() || (!radioPregunta8OpcionSi.isChecked() && !radioPregunta8OpcionNo.isChecked()) || (!radioPregunta9OpcionSi.isChecked() && !radioPregunta9OpcionNo.isChecked()))){
@@ -171,12 +182,15 @@ public class Test extends AppCompatActivity {
         }else {
             try {
                 dbDonaEasy.child("Donador").child(id).child("respuestasTest").setValue(listaRespuestasTest);
+                dbDonaEasy.child("Donador").child(id).child("estatus").setValue(estatus);
                 dbDonaEasy.child("Donador").child(id).child("testCompleto").setValue(true);
                 usuarioLogueado.setRespuestasTest(listaRespuestasTest);
+                usuarioLogueado.setEstatus(estatus);
                 usuarioLogueado.setTestCompleto(true);
                 Intent intentRecuperarCampanias =new Intent(Test.this, RecuperarCampanias.class);
                 intentRecuperarCampanias.putExtra("donador", usuarioLogueado);
                 startActivity(intentRecuperarCampanias);
+                finish();
             }catch (Exception e){
                 Toast.makeText(Test.this, "Error al conectarse con la base de datos", Toast.LENGTH_SHORT).show();
             }

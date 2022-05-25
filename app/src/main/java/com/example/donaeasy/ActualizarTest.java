@@ -65,6 +65,8 @@ public class ActualizarTest extends AppCompatActivity {
     RadioButton radioPregunta9OpcionSi;
     RadioButton radioPregunta9OpcionNo;
 
+    String estatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +132,8 @@ public class ActualizarTest extends AppCompatActivity {
         radioGrupoPregunta9 = (RadioGroup) findViewById(R.id.radioGrupoPregunta9);
         radioPregunta9OpcionSi = findViewById(R.id.radioPregunta9OpcionSi);
         radioPregunta9OpcionNo = findViewById(R.id.radioPregunta9OpcionNo);
+
+        estatus = donador.getEstatus();
 
         if(donador.getRespuestasTest().get(0)){
             radioPregunta1OpcionSi.setChecked(true);
@@ -249,6 +253,15 @@ public class ActualizarTest extends AppCompatActivity {
             listaRespuestasTest.add(false);
         }
 
+        for (boolean respuesta: listaRespuestasTest) {
+            if (!respuesta) {
+                estatus = "Inactivo";
+                break;
+            }else {
+                estatus = "Activo";
+            }
+        }
+
         if((!radioPregunta1OpcionSi.isChecked() && !radioPregunta1OpcionNo.isChecked()) || (!radioPregunta2OpcionSi.isChecked() && !radioPregunta2OpcionNo.isChecked()) || (!radioPregunta3OpcionSi.isChecked() && !radioPregunta3OpcionNo.isChecked())
                 || (!radioPregunta4OpcionSi.isChecked() && !radioPregunta4OpcionNo.isChecked()) || (!radioPregunta5OpcionSi.isChecked() && !radioPregunta5OpcionNo.isChecked()) || (!radioPregunta6OpcionSi.isChecked() && !radioPregunta6OpcionNo.isChecked())
                 || (!radioPregunta7OpcionSi.isChecked() && !radioPregunta7OpcionNo.isChecked() || (!radioPregunta8OpcionSi.isChecked() && !radioPregunta8OpcionNo.isChecked()) || (!radioPregunta9OpcionSi.isChecked() && !radioPregunta9OpcionNo.isChecked()))){
@@ -257,7 +270,9 @@ public class ActualizarTest extends AppCompatActivity {
             try {
                 donador.setRespuestasTest(listaRespuestasTest);
                 dbDonaEasy.child("Donador").child(donador.getId()).child("respuestasTest").setValue(listaRespuestasTest);
+                dbDonaEasy.child("Donador").child(donador.getId()).child("estatus").setValue(estatus);
                 donador.setRespuestasTest(listaRespuestasTest);
+                donador.setEstatus(estatus);
                 Intent intentMiPerfil = new Intent(ActualizarTest.this, MiPerfil.class);
                 intentMiPerfil.putExtra("donadorTest", donador);
                 Toast.makeText(ActualizarTest.this, "Test actualizado correctamente", Toast.LENGTH_LONG).show();

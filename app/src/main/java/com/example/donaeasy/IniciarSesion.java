@@ -90,6 +90,11 @@ public class IniciarSesion extends AppCompatActivity {
                                     donador.setTipo(usuarioBd.child("tipo").getValue().toString());
                                     donador.setTestCompleto((Boolean) usuarioBd.child("testCompleto").getValue());
                                     donador.setCita((Cita) usuarioBd.child("cita").getValue(Cita.class));
+                                    if (usuarioBd.child("estatus").getValue() == null){
+                                        donador.setEstatus(null);
+                                    }else {
+                                        donador.setEstatus(usuarioBd.child("estatus").getValue().toString());
+                                    }
                                     donador.setRespuestasTest((ArrayList<Boolean>) usuarioBd.child("respuestasTest").getValue());
                                     donador.setId(usuarioBd.getKey());
                                     banderaUsuarioExiste = true;
@@ -161,10 +166,12 @@ public class IniciarSesion extends AppCompatActivity {
 
             }
         });
+    }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        //this.finish();
     }
 
 

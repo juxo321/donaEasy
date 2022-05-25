@@ -47,17 +47,20 @@ public class  CampaniaAdaptador extends  RecyclerView.Adapter<CampaniaAdaptador.
          holder.btnDonarCampania.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 if(donador.getCita()==null){
-                     Campania campaniaDonar = listaCampanias.get(holder.getAdapterPosition());
-                     Intent intentAgendarCita =new Intent(contexto, AgendarCita.class);
-                     intentAgendarCita.putExtra("campaniaDonar", campaniaDonar);
-                     intentAgendarCita.putExtra("donador", donador);
-                     contexto.startActivity(intentAgendarCita);
-                     ((Activity)contexto).finish();
+                 if(donador.getEstatus().equals("Activo")){
+                     if(donador.getCita()==null){
+                         Campania campaniaDonar = listaCampanias.get(holder.getAdapterPosition());
+                         Intent intentAgendarCita =new Intent(contexto, AgendarCita.class);
+                         intentAgendarCita.putExtra("campaniaDonar", campaniaDonar);
+                         intentAgendarCita.putExtra("donador", donador);
+                         contexto.startActivity(intentAgendarCita);
+                         //((Activity)contexto).finish();
+                     }else {
+                         Toast.makeText(contexto, "Solo puedes participar en una campaña", Toast.LENGTH_SHORT).show();
+                     }
                  }else {
-                     Toast.makeText(contexto, "Solo puedes participar en una campaña", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(contexto, "Actualmente no cuentas con los requisitos minimos para donar", Toast.LENGTH_SHORT).show();
                  }
-
              }
          });
 

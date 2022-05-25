@@ -10,6 +10,7 @@ public class Donador implements Serializable {
     String tipo;
     Boolean testCompleto;
     Cita cita;
+    String estatus;
     ArrayList<Boolean> respuestasTest;
 
     public Donador() {
@@ -19,12 +20,14 @@ public class Donador implements Serializable {
         this.testCompleto = testCompleto;
     }
 
-    public Donador(String id, String usuario, String contrasena, String tipo, Boolean testCompleto, Cita cita, ArrayList<Boolean> respuestasTest) {
+    public Donador(String id, String usuario, String contrasena, String tipo, Boolean testCompleto, Cita cita, String estatus, ArrayList<Boolean> respuestasTest) {
+        this.id = id;
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.tipo = tipo;
         this.testCompleto = testCompleto;
         this.cita = cita;
+        this.estatus = estatus;
         this.respuestasTest = respuestasTest;
     }
 
@@ -74,6 +77,14 @@ public class Donador implements Serializable {
 
     public void setTestCompleto(Boolean testCompleto) {
         this.testCompleto = testCompleto;
+    }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
     }
 
     public ArrayList<Boolean> getRespuestasTest() {
