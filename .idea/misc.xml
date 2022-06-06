@@ -19,9 +19,10 @@
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_detalles_campania.xml" value="0.25" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_generar_campania.xml" value="0.26157407407407407" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_guardar_campania.xml" value="0.264" />
-        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarsesion.xml" value="0.264" />
+        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_iniciarsesion.xml" value="0.1" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_main_campania.xml" value="0.176" />
+        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_mi_campania.xml" value="0.264" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_mi_perfil.xml" value="0.264" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_modificar_campana.xml" value="0.25" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/activity_modificar_campania.xml" value="0.25" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/layout/tarjeta_campania.xml" value="0.264" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/menu/menu2.xml" value="0.25" />
+        <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/menu/menu3.xml" value="0.25" />
         <entry key="..\:/Users/jus_p/AndroidStudioProjects/DonaEasy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.105" />
       </map>
     </option>

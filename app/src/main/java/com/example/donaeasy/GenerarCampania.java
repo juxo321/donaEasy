@@ -6,6 +6,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,8 +25,6 @@ public class GenerarCampania extends AppCompatActivity {
 
 
     Button btnCrearCampania ;
-    Button btnEliminarCampania;
-    Button btnModificarCampania;
     TextView txtNombre;
     TextView txtTipoSangre;
     TextView txtDonadoresNecesarios;
@@ -39,8 +40,7 @@ public class GenerarCampania extends AppCompatActivity {
         setContentView(R.layout.activity_generar_campania);
 
         btnCrearCampania = findViewById(R.id.btnCrearCampania);
-        btnEliminarCampania = findViewById(R.id.EliminarCampania);
-        btnModificarCampania = findViewById(R.id.ModificarCampania);
+
 
         txtNombre = findViewById(R.id.txtNombre);
         txtTipoSangre = findViewById(R.id.txtTipoSangre);
@@ -65,13 +65,23 @@ public class GenerarCampania extends AppCompatActivity {
             txtDonadoresNecesarios.append(String.valueOf(paciente.getCampania().getDonadoresNecesarios()));
             txtUbicacion.append(paciente.getCampania().getUbicacion());
             txtDescripcion.append(paciente.getCampania().getDescripcion());
-            btnEliminarCampania.setEnabled(true);
-            btnModificarCampania.setEnabled(true);
-        }else {
-            btnEliminarCampania.setEnabled(false);
-            btnModificarCampania.setEnabled(false);
+
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu3, menu);
+        return true;
+    }
+
+    public boolean miCampania(MenuItem item){
+        Intent intentMiCampania =new Intent(GenerarCampania.this, MiCampania.class);
+        intentMiCampania.putExtra("paciente", paciente);
+        startActivity(intentMiCampania);
+        return true;
     }
 
     public void formularioCampania(View view){
@@ -80,64 +90,6 @@ public class GenerarCampania extends AppCompatActivity {
         startActivity(intentGuardarCampania);
     }
 
-    public void modificarCampania(View view){
-        Intent intentModificarCampania =new Intent(GenerarCampania.this, ModificarCampania.class);
-        intentModificarCampania.putExtra("pacienteModificar", paciente);
-        startActivity(intentModificarCampania);
-    }
-
-
-
-    public void eliminarCampania(View view){
-        try {
-            new AlertDialog.Builder(this)
-                    .setTitle("Borrar Campaña")
-                    .setMessage("¿Desea borrar la campaña?")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dbDonaEasy.child("Paciente").child(paciente.getId()).child("campania").removeValue();
-                            txtNombre.setText("Nombre: ");
-                            txtTipoSangre.setText("Tipo de sangre: ");
-                            txtDonadoresNecesarios.setText("Donadores requeridos: ");
-                            txtUbicacion.setText("Ubicación: ");
-                            txtDescripcion.setText("Descripción");
-                            btnCrearCampania.setEnabled(true);
-                            btnEliminarCampania.setEnabled(false);
-                            btnModificarCampania.setEnabled(false);
-                            paciente.getCampania().setDonadoresNecesarios(-1);
-                            Toast.makeText(GenerarCampania.this, "Campaña eliminada correctamente", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, null)
-                    .setIcon(android.R.drawable.ic_delete)
-                    .show();
-        }catch(Exception e){
-            Toast.makeText(GenerarCampania.this, "Error al eliminar la campaña", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    public void verificarEstadoDeLaCampania(View view){
-        if(paciente.getCampania() != null){
-            if(paciente.getCampania().getDonadoresNecesarios() != -1){
-                AlertDialog alertDialog = new AlertDialog.Builder(GenerarCampania.this).create();
-                alertDialog.setTitle("Estado de la campaña");
-                alertDialog.setMessage("Donadores faltantes: "+ paciente.getCampania().getDonadoresNecesarios());
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }else {
-                Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
-            }
-        }else {
-            Toast.makeText(GenerarCampania.this, "No existe ninguna campaña", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     @Override
     public void onBackPressed() {

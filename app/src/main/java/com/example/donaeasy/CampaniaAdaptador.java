@@ -39,11 +39,11 @@ public class  CampaniaAdaptador extends  RecyclerView.Adapter<CampaniaAdaptador.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         holder.txtNombre.setText(listaCampanias.get(position).getNombrePaciente());
-         holder.txtTipoSangre.setText(listaCampanias.get(position).getTipoSangre());
-         holder.txtDonadoresNecesarios.setText(Integer.toString(listaCampanias.get(position).getDonadoresNecesarios()));
-         holder.txtUbicacion.setText(listaCampanias.get(position).getUbicacion());
-         holder.txtDescripcion.setText(listaCampanias.get(position).getDescripcion());
+         holder.txtNombre.append(listaCampanias.get(position).getNombrePaciente());
+         holder.txtTipoSangre.append(listaCampanias.get(position).getTipoSangre());
+         holder.txtDonadoresNecesarios.append(Integer.toString(listaCampanias.get(position).getDonadoresNecesarios()));
+         holder.txtUbicacion.append(listaCampanias.get(position).getUbicacion());
+         holder.txtDescripcion.append(listaCampanias.get(position).getDescripcion());
          holder.btnDonarCampania.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {

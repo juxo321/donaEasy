@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonaEasy">
         <activity
+            android:name=".MiCampania"
+            android:exported="false" />
+        <activity
             android:name=".ReeagendarCita"
             android:exported="false" />
         <activity

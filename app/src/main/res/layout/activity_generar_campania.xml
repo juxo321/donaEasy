@@ -145,52 +145,7 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/ModificarCampania"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/rojoPrimary"
-        android:onClick="modificarCampania"
-        android:text="Modificar"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.045" />
 
-    <Button
-        android:id="@+id/EliminarCampania"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/rojoPrimary"
-        android:onClick="eliminarCampania"
-        android:text="Eliminar"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ModificarCampania"
-        app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.045" />
-
-    <Button
-        android:id="@+id/verEstadoCampania"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:backgroundTint="@color/rojoPrimary"
-        android:onClick="verificarEstadoDeLaCampania"
-        android:text="Ver estado de la campaña"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrearCampania"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l"
-        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnCerrarSesion"
